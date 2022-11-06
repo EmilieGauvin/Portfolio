@@ -1,0 +1,20 @@
+.hide{
+    opacity: 0;
+}
+
+.show{
+  opacity: 1;
+  transition: opacity 3s
+}
+
+.contact section.text{
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.contact h4.text
+{
+  text-align: center;
+}

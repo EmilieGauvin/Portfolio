@@ -1,0 +1,83 @@
+.about
+{
+  text-align: center;
+  height: 100vh;
+}
+
+.hide{
+  opacity: 0;
+}
+
+.show{
+  opacity: 1;
+  transition: opacity 3s
+}
+
+.about section.title{
+  color: #e9d6cd;
+}
+
+section.text-cv{
+  /* height: 45vh; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: #e9d6cd;
+}
+
+.about .line:before{
+  background: #e9d6cd;
+}
+
+.about .cv
+{
+    right: 0px;
+    /* text-align: right; */
+}
+
+.about .text
+{
+  right: 0px;
+}
+
+section.skills {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  /* height:30vh; */
+}
+
+
+.skills div{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 29%;
+  border:solid;
+  height: 100%;
+  
+}
+
+.skill{
+  height: calc(15px + 1vw);
+  padding-bottom: calc(5px + 0.5vw);
+  display: flex;
+  flex-direction: row;
+  white-space: nowrap;
+}
+
+/* .right-align .skill{
+  text-align: right;
+}
+
+.left-align .skill{
+  text-align: left;
+} */
+
+.skill img{
+  position : relative;
+  top : calc(3px + 0.3vw);
+  height : 100%;
+  padding-right: calc(5px + 0.5vw);
+  padding-left: calc(5px + 0.5vw);
+}

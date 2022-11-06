@@ -1,0 +1,148 @@
+:root {
+  font-family: 'Playfair Display', serif;
+  /* font-size: 16px;
+  line-height: 24px; */
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgb(43, 5, 5);
+  /* background-color: #242424; */
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+  
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+html,
+body,
+.webgl
+{
+    overflow: hidden;
+}
+
+
+
+body {
+  position: relative;
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+  cursor: default;
+}
+
+body.grab {
+  cursor: grab;
+}
+
+body.grabbing {
+  cursor: grabbing;
+}
+
+h1{
+  font-weight: 700;
+  font-size: calc(24px + 3vw);
+  margin:0;
+  padding:0;
+}
+
+h4 {
+  font-weight: 400;
+  font-size: calc(12px + 1.5vw);
+  line-height: calc(14px + 1.8vw);
+  white-space: break-spaces;
+    margin:0;
+  padding:0;
+}
+
+h5 {
+  font-weight: 400;
+  font-size: calc(9.5px + 1.2vw);
+  margin:0;
+  padding:0;
+}
+
+.navButton .navText{
+  font-weight: 400;
+  font-size: calc(9.5px + 1.2vw);
+  margin:0;
+  padding:0;
+}
+
+.dark .navButton .navText{
+  color: rgb(43, 5, 5);
+  transition: color 1s
+}
+
+.light .navButton .navText{
+  color: #e9d6cd;
+  transition: color 1s
+}
+
+.navButton{
+  text-decoration: none;
+}
+
+.textButton{
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+.textButton.active {
+  color:rgb(110, 42, 165);
+}
+
+button{
+  background: transparent;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: 700;
+  font-style: italic;
+  color: inherit;
+  text-align: center;
+  border:none;
+  cursor: pointer;
+  white-space: nowrap;
+  /* padding: 0; */
+}
+
+button:focus,
+button:focus-visible,
+button:hover,
+button:active {
+  border:none; } 
+
+button:hover
+{
+  text-decoration: underline;
+}
+
+.webgl {
+  position: absolute;
+  filter: blur(0rem);
+  transition: filter 0.3s;
+  width: 100vw;
+  height: 100vh;
+  top:0;
+}
+
+.webgl.blurred {
+  filter: blur(0.5rem);
+  transition: filter 3s;
+}
+
+/* @media only screen and (min-width: 768px) {
+  .webgl {
+    height: 100%;
+    top: -20vh;
+  }
+} */
+
+

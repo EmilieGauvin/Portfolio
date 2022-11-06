@@ -1,0 +1,89 @@
+
+
+.hide {
+  opacity: 0;
+}
+
+.show {
+  opacity: 1;
+  transition: opacity 3s
+}
+
+.home section.text {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.home h4.text {
+  text-align: center;
+}
+
+.home .cubeContainer {
+  transform-origin: top left;
+  transform: scale(0.5);
+}
+
+@media only screen and (min-width: 768px) {
+  .home .cubeContainer {
+    transform: scale(0.8);
+    opacity: 0.9
+  }
+}
+
+.home .face {
+  border-color: rgb(43, 5, 5);
+  border-width: 2px
+}
+
+.home .cube {
+  top: 5vh;
+  left: 5vh;
+}
+
+.home .cubeMover {
+  animation: upDown 2s alternate infinite ease-in-out;
+}
+
+@keyframes upDown {
+  to {
+    transform: translateY(5vh);
+  }
+}
+
+.home .hole {
+  top: 8vh;
+  left: 5vh;
+}
+
+.home .cursor {
+  top: 1.5vh;
+  left: 5vh;
+  color: rgb(43, 5, 5)
+}
+
+.instruction {
+  position: absolute;
+  top: 1vh;
+  left: 6.5vh;
+  width: 22vw;
+}
+
+@media only screen and (min-width: 768px) {
+  .instruction {
+    top: 3vh;
+    left: 10vh;
+    width: 20vw;
+  }
+}
+
+.instruction.hideInstuction {
+  opacity: 0;
+  transition: opacity 0.3s
+}
+
+.instruction.showInstuction {
+  opacity: 1;
+  transition: opacity 0.3s
+}

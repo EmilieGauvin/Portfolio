@@ -1,0 +1,122 @@
+section.menu.title {
+  position: absolute;
+  top: 1%;
+  right: 1%;
+  z-index: 2;
+  justify-content: flex-start;
+  align-items: flex-end;
+}
+
+
+
+.navigation {
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.navButton {
+  width:100%;
+  font-size: 1.5em;
+  line-height: 1;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: transparent;
+  cursor: pointer;
+  display: flex;
+  justify-content: flex-end;
+  margin: auto;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+.navButton .navIcon {
+  display: flex;
+  height: 2.8vw;
+  width: 2.8vw;
+}
+
+.navIcon img {
+  max-width: 100%;
+  max-height: 100%;
+ }
+
+.navButton .navText {
+  font-size: 2.8vw;
+  line-height: 3vw;
+  white-space: break-spaces;
+}
+
+
+@media (hover: hover) {
+
+  .navButton:hover .navText{
+    color: #a2a2e9;
+    transition: color 0.3s;
+  }
+}
+
+
+.navIcon.home.one,
+.navIcon.home.two{
+  position: absolute
+}
+
+.navIcon.home.three{
+  transform: rotate(90deg)
+}
+
+.concentrate .navIcon.home.one{
+  transform: translateY(215%) rotate(-45deg);
+}
+
+.concentrate .navIcon.home.two{
+  transform: translateY(250%) rotate(-45deg);
+}
+
+.concentrate .navIcon.home.three{
+  transform: translateY(285%) rotate(-45deg);
+}
+
+.concentrate .navIcon.about{
+  transform: translateY(-23%);
+}
+
+.concentrate .navIcon.project{
+  transform: translateY(-48%);
+}
+
+.concentrate .navIcon.contact{
+  transform: translateX(-100%) translateY(-320%);
+}
+
+.concentrate .navText {
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+.deploy .navText{
+  opacity: 1;
+  transition: opacity 0.2s;
+}
+
+.concentrate .navIcon.home,
+.concentrate .navIcon.about,
+.concentrate .navIcon.project,
+.concentrate .navIcon.contact
+{
+  transition: transform 1s
+}
+
+
+
+.deploy .navIcon.home,
+.deploy .navIcon.about,
+.deploy .navIcon.project,
+.deploy .navIcon.contact
+{
+  transition: transform 0.2s
+}
