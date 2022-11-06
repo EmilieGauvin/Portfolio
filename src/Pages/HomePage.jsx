@@ -20,9 +20,7 @@ export default function HomePage() {
   }, [])
 
   const englishTitle = 'Hello';
-  const englishText = `I’m Emilie, a creative developer 
-with a background in architecture,
-graphic design, and mathematics.`
+  const englishText = `I’m Emilie, a creative developer with a background in architecture, graphic design, and mathematics.`
 
 
   const frenchTitle = `Bonjour`;

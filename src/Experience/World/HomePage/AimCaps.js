@@ -16,6 +16,9 @@ export default class AimCaps
         this.camera = this.experience.camera
         this.scaleRatioCamera = this.experience.scaleRatioCamera
         this.baseWidth = this.experience.baseWidth
+        this.circlePosition = this.experience.circlePosition
+        this.squarePosition = this.experience.squarePosition
+        this.trianglePosition = this.experience.trianglePosition
 
         // this.backgroundColor1 = new THREE.Color('#b5b1f7')
         // this.backgroundColor2 = new THREE.Color('#ffccf6')
@@ -37,7 +40,7 @@ export default class AimCaps
     circleAimCapSetUp()
     {
         this.circleAimCap = new THREE.Mesh(
-            new THREE.CylinderGeometry(1.58, 1.58, 0.1, 16, 1, false),
+            new THREE.CylinderGeometry(this.circlePosition.radius, this.circlePosition.radius, 0.1, 32, 1, false),
             new THREE.MeshBasicMaterial()
         )
         this.circleAimCap.material.color = this.backgroundColor6
@@ -51,7 +54,7 @@ export default class AimCaps
     squareAimCapSetUp()
     {
         this.squareAimCap = new THREE.Mesh(
-            new THREE.CylinderGeometry(2, 2, 0.1, 4, 1, false),
+            new THREE.CylinderGeometry(this.squarePosition.radius, this.squarePosition.radius, 0.1, 4, 1, false),
             new THREE.MeshBasicMaterial()
         )
         this.squareAimCap.material.color = this.backgroundColor6
@@ -66,7 +69,7 @@ export default class AimCaps
     triangleAimCapSetUp()
     {
         this.triangleAimCap = new THREE.Mesh(
-            new THREE.CylinderGeometry(2, 2, 0.1, 3, 1, false),
+            new THREE.CylinderGeometry(this.trianglePosition.radius, this.trianglePosition.radius, 0.1, 3, 1, false),
             new THREE.MeshBasicMaterial()
         )
         this.triangleAimCap.material.color = this.backgroundColor6
@@ -114,20 +117,20 @@ export default class AimCaps
         this.scaleRatio = this.experience.scaleRatio
         // adapt aims
         this.circleAimCap.position.set(
-            -1.8*this.scaleRatio, 
-            2.65*this.scaleRatio, 
+            this.circlePosition.x*this.scaleRatio, 
+            this.circlePosition.y*this.scaleRatio, 
             -0.05)
         this.circleAimCap.scale.set(this.scaleRatio, 1, this.scaleRatio)
 
         this.squareAimCap.position.set(
-            1.55*this.scaleRatio, 
-            -2.87*this.scaleRatio, 
+            this.squarePosition.x*this.scaleRatio, 
+            this.squarePosition.y*this.scaleRatio, 
             -0.05)
         this.squareAimCap.scale.set(this.scaleRatio, 1, this.scaleRatio)
 
         this.triangleAimCap.position.set(
-            1.55*this.scaleRatio, 
-            -0.43*this.scaleRatio, 
+            this.trianglePosition.x*this.scaleRatio, 
+            this.trianglePosition.y*this.scaleRatio, 
             -0.05)
         this.triangleAimCap.scale.set(this.scaleRatio, 1, this.scaleRatio)
     }

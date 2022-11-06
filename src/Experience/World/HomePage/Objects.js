@@ -22,6 +22,9 @@ export default class Objects
         this.scaleRatio = this.experience.scaleRatio
         this.baseWidth = this.experience.baseWidth
         this.debug = this.experience.debug
+        this.circlePosition = this.experience.circlePosition
+        this.squarePosition = this.experience.squarePosition
+        this.trianglePosition = this.experience.trianglePosition
 
         //Debug
         if(this.debug.active)
@@ -33,6 +36,8 @@ export default class Objects
         // this.sectionTexture = this.resources.items.sectionTexture
         // this.sectionTexture3 = this.resources.items.sectionTexture3
         this.sectionTexture6 = this.resources.items.sectionTexture6
+        this.test = this.resources.items.test
+
 
         // this.circleColor1 = new THREE.Color('#1a61d2')
         // this.circleColor2 = new THREE.Color('#fd6f9a')
@@ -114,7 +119,7 @@ export default class Objects
     {
         /// circleAim
         this.circleAim = new THREE.Mesh(
-            new THREE.CylinderGeometry(1.58, 1.58, 10, 16, 1, true),
+            new THREE.CylinderGeometry(this.circlePosition.radius, this.circlePosition.radius, 10, 16, 1, true),
             new THREE.MeshBasicMaterial()
         )
         this.circleAim.material.color = new THREE.Color(0.0, 0.0, 0.0)
@@ -122,9 +127,9 @@ export default class Objects
         this.circleAim.castShadow = true
         this.circleAim.receiveShadow = true
         this.circleAim.position.set(
-            -1.8*this.scaleRatio, 
-            2.65*this.scaleRatio, 
-            -5)
+            this.circlePosition.x*this.scaleRatio, 
+            this.circlePosition.y*this.scaleRatio, 
+            this.circlePosition.z)
         this.circleAim.material.side = THREE.DoubleSide
         this.circleAim.material.visible = false
         this.circleAim.rotation.x = - Math.PI * 0.5
@@ -132,7 +137,7 @@ export default class Objects
         this.scene.add(this.circleAim)
 
         /// circleMoving
-        this.physics.cylinderGenerator('circleMovingMesh', 'circleMovingBody', 1.52, 1.52, 2, 32, 1, false, {x:0, y:0, z:20}, 1, this.scaleRatio)
+        this.physics.cylinderGenerator('circleMovingMesh', 'circleMovingBody', this.circlePosition.radius, this.circlePosition.radius, 2, 32, 1, false, {x:0, y:0, z:20}, 1, this.scaleRatio)
         this.circleMoving = this.scene.children.find((child) => child.name === 'circleMovingMesh')
         this.circleMoving.scale.set(this.scaleRatio, this.scaleRatio, this.scaleRatio)
         this.circleMoving.material.color = this.circleColor6
@@ -149,7 +154,7 @@ export default class Objects
     {
         /// squareAim
         this.squareAim = new THREE.Mesh(
-            new THREE.CylinderGeometry(2, 2, 10, 4, 1, true),
+            new THREE.CylinderGeometry(this.squarePosition.radius, this.squarePosition.radius, 10, 4, 1, true),
             new THREE.MeshBasicMaterial()
         )
         this.squareAim.material.color = new THREE.Color(0.0, 0.0, 0.0)
@@ -157,9 +162,9 @@ export default class Objects
         this.squareAim.castShadow = true
         this.squareAim.receiveShadow = true
         this.squareAim.position.set(
-            1.55*this.scaleRatio, 
-            -2.87*this.scaleRatio, 
-            -5)
+            this.squarePosition.x *this.scaleRatio, 
+            this.squarePosition.y *this.scaleRatio, 
+            this.squarePosition.z)
         this.squareAim.material.side = THREE.DoubleSide
         this.squareAim.material.visible = false
         this.squareAim.rotation.x = - Math.PI * 0.5
@@ -168,7 +173,7 @@ export default class Objects
         this.scene.add(this.squareAim)
 
         /// squareMoving
-        this.physics.cylinderGenerator('squareMovingMesh', 'squareMovingBody', 2, 2, 2, 4, 1, false, {x:0, y:0, z:20}, 1, this.scaleRatio)
+        this.physics.cylinderGenerator('squareMovingMesh', 'squareMovingBody', this.squarePosition.radius, this.squarePosition.radius, 2, 4, 1, false, {x:0, y:0, z:20}, 1, this.scaleRatio)
         this.squareMoving = this.scene.children.find((child) => child.name === 'squareMovingMesh')
         this.squareMoving.scale.set(this.scaleRatio, this.scaleRatio, this.scaleRatio)
         this.squareMoving.material.color = this.squareColor6
@@ -185,7 +190,7 @@ export default class Objects
     {
         /// triangleAim
         this.triangleAim = new THREE.Mesh(
-            new THREE.CylinderGeometry(2, 2, 10, 3, 1, true),
+            new THREE.CylinderGeometry(this.trianglePosition.radius, this.trianglePosition.radius, 10, 3, 1, true),
             new THREE.MeshBasicMaterial()
         )
         this.triangleAim.material.color = new THREE.Color(0.0, 0.0, 0.0)
@@ -193,9 +198,9 @@ export default class Objects
         this.triangleAim.castShadow = true
         this.triangleAim.receiveShadow = true
         this.triangleAim.position.set(
-            1.55*this.scaleRatio, 
-            -0.43*this.scaleRatio, 
-            -5)
+            this.trianglePosition.x *this.scaleRatio, 
+            this.trianglePosition.y *this.scaleRatio, 
+            this.trianglePosition.z)
         this.triangleAim.material.side = THREE.DoubleSide
         this.triangleAim.material.visible = false
         this.triangleAim.rotation.x = - Math.PI * 0.5
@@ -203,7 +208,7 @@ export default class Objects
         this.scene.add(this.triangleAim)
 
         /// triangleMoving
-        this.physics.cylinderGenerator('triangleMovingMesh', 'triangleMovingBody', 2, 2, 2, 3, 1, false, {x:0, y:0, z:20}, 1, this.scaleRatio)
+        this.physics.cylinderGenerator('triangleMovingMesh', 'triangleMovingBody', this.trianglePosition.radius, this.trianglePosition.radius, 2, 3, 1, false, {x:0, y:0, z:20}, 1, this.scaleRatio)
         this.triangleMoving = this.scene.children.find((child) => child.name === 'triangleMovingMesh')
         this.triangleMoving.scale.set(this.scaleRatio, this.scaleRatio, this.scaleRatio)
         this.triangleMoving.material.color = this.triangleColor6
@@ -218,13 +223,15 @@ export default class Objects
 
     planes()
     {
-        const backSectionGenerator = this.physics.planeGenerator(this.baseWidth, this.baseWidth)
+        const backSectionGenerator = this.physics.planeGenerator(this.baseWidth * 2, this.baseWidth)
         this.backSection = backSectionGenerator[0]
         this.backSectionBody = backSectionGenerator[1]
         this.sectionTexture6.repeat.set(1, 1)
         this.backSection.scale.set(this.scaleRatio, this.scaleRatio, this.scaleRatio)
-        this.backSection.material.map = this.sectionTexture6
+        // this.backSection.material.map = this.sectionTexture6
         this.backSection.material.transparent = true
+        this.backSection.material.map = this.test
+
     }
 
     limitPlanes()
@@ -321,21 +328,21 @@ export default class Objects
 
         // adapt aims
         this.circleAim.position.set(
-            -1.8*this.scaleRatio, 
-            2.65*this.scaleRatio, 
-            -5)
+            this.circlePosition.x*this.scaleRatio, 
+            this.circlePosition.y*this.scaleRatio, 
+            this.circlePosition.z)
         this.circleAim.scale.set(this.scaleRatio, 1, this.scaleRatio)
 
         this.squareAim.position.set(
-            1.55*this.scaleRatio, 
-            -2.87*this.scaleRatio, 
-            -5)
+            this.squarePosition.x *this.scaleRatio, 
+            this.squarePosition.y *this.scaleRatio, 
+            this.squarePosition.z)
         this.squareAim.scale.set(this.scaleRatio, 1, this.scaleRatio)
 
         this.triangleAim.position.set(
-            1.55*this.scaleRatio, 
-            -0.43*this.scaleRatio, 
-            -5)
+            this.trianglePosition.x *this.scaleRatio, 
+            this.trianglePosition.y *this.scaleRatio, 
+            this.trianglePosition.z)
         this.triangleAim.scale.set(this.scaleRatio, 1, this.scaleRatio)
 
         // adapt moving objects

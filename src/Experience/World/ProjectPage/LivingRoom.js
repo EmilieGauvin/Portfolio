@@ -18,6 +18,7 @@ export default class LivingRoom
         this.sizes = this.experience.sizes
         this.debug = this.experience.debug
         this.camera = this.experience.camera.instance
+        this.squarePosition = this.experience.squarePosition
 
         //Debug
         if(this.debug.active)
@@ -32,7 +33,7 @@ export default class LivingRoom
 
         // Base
         this.scaleRatio = this.experience.scaleRatio
-        this.baseScale = 0.5
+        this.baseScale = 0.595
 
         this.setModel()
     }
@@ -42,8 +43,8 @@ export default class LivingRoom
         //Import model
         this.model = this.resource.scene
         this.model.position.set(
-            1.55* this.scaleRatio, 
-            -2.87* this.scaleRatio, 
+            this.squarePosition.x* this.scaleRatio, 
+            this.squarePosition.y* this.scaleRatio, 
             0)
         this.model.scale.set(this.baseScale * this.scaleRatio, this.baseScale * this.scaleRatio, this.baseScale * this.scaleRatio)
         this.scene.add(this.model)
@@ -186,8 +187,8 @@ export default class LivingRoom
     {
         this.scaleRatio = this.experience.scaleRatio
         this.model.position.set(
-            1.55*this.scaleRatio, 
-            -2.87*this.scaleRatio, 
+            this.squarePosition.x* this.scaleRatio, 
+            this.squarePosition.y* this.scaleRatio, 
             0)
         this.model.scale.set(this.baseScale * this.scaleRatio, this.baseScale * this.scaleRatio, this.baseScale * this.scaleRatio)
         this.drapeMaterial.uniforms.uScaleRatio.value = this.scaleRatio

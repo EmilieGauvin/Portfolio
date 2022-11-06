@@ -18,6 +18,8 @@
 
 .home h4.text {
   text-align: center;
+  width:50vw;
+  min-width: 320px;
 }
 
 .home .cubeContainer {

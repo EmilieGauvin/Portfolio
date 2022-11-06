@@ -10,6 +10,11 @@ export default [
     //     path: '../static/textures/section-01.png'
     // },
     {
+        name: 'test',
+        type: 'texture',
+        path: '../static/textures/test-01.png'
+    },
+    {
         name: 'sectionTexture6',
         type: 'texture',
         path: '../static/textures/section-02.png'

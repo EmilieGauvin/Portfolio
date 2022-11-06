@@ -13,6 +13,7 @@ export default class Attic
         this.time = this.experience.time
         this.sizes = this.experience.sizes
         this.debug = this.experience.debug
+        this.trianglePosition = this.experience.trianglePosition
 
         //Debug
         if(this.debug.active)
@@ -27,7 +28,7 @@ export default class Attic
 
         // Base
         this.scaleRatio = this.experience.scaleRatio
-
+        this.baseScale = 0.714
         this.setModel()
 
         
@@ -39,10 +40,10 @@ export default class Attic
         this.model = this.resource.scene
         console.log('attic')
         this.model.position.set(
-            1.55* this.scaleRatio, 
-            -0.43* this.scaleRatio, 
+            this.trianglePosition.x* this.scaleRatio, 
+            this.trianglePosition.y* this.scaleRatio, 
             0)
-        this.model.scale.set(0.6 * this.scaleRatio, 0.6 * this.scaleRatio, 0.6 * this.scaleRatio)
+        this.model.scale.set(this.baseScale * this.scaleRatio, this.baseScale * this.scaleRatio, this.baseScale * this.scaleRatio)
         this.scene.add(this.model)
 
         // Baked texture
@@ -115,9 +116,9 @@ export default class Attic
     {
         this.scaleRatio = this.experience.scaleRatio
         this.model.position.set(
-            1.55*this.scaleRatio, 
-            -0.43*this.scaleRatio, 
+            this.trianglePosition.x* this.scaleRatio, 
+            this.trianglePosition.y* this.scaleRatio, 
             0)
-        this.model.scale.set(0.6 * this.scaleRatio, 0.6 * this.scaleRatio, 0.6 * this.scaleRatio)
+        this.model.scale.set(this.baseScale * this.scaleRatio, this.baseScale * this.scaleRatio, this.baseScale * this.scaleRatio)
     }
 }
