@@ -204,6 +204,14 @@ export default class Experience {
         })
     }
 
+    englishTrue() {
+        if (this.world.aimCaps) this.world.aimCaps.englishTrue()
+    }
+
+    englishFalse() {
+        if (this.world.aimCaps) this.world.aimCaps.englishFalse()
+    }
+
     resize() {
         this.scaleRatioCamera.resize()
         this.camera.resize()
@@ -219,7 +227,6 @@ export default class Experience {
         this.renderer.resize()
         if (this.world) this.world.resize()
     }
-
 
     update() {
         if (this.statsActive) this.stats.begin()

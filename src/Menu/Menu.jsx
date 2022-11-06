@@ -4,7 +4,7 @@ import Experience from '../Experience/Experience'
 import { useNavigate, useLocation, NavLink } from "react-router-dom";
 import "./Menu.css";
 
-export default function Menu() {
+export default function Menu(props) {
     let location = useLocation()
     const navigate = useNavigate()
     const experience = new Experience()
@@ -15,9 +15,12 @@ export default function Menu() {
     const [onContactPage, setOnContactPage] = useState(false)
     const [deployMenu, setDeployMenu] = useState(false)
     const [lightText, setLightText] = useState(false)
+    const english = props.english
     
-
     useEffect(() => {
+        if (location.pathname != '/' && location.pathname != '/about' && location.pathname != '/projects' && location.pathname != '/contact')
+        location.pathname ='/'
+        
         if (location.pathname === '/'&& onHomePage === false) 
         {
             setOnHomePage(true)
@@ -168,7 +171,7 @@ export default function Menu() {
                 onMouseLeave={() => setDeployMenu(false)}
                 className={deployMenu === false ? "navigation concentrate" : "navigation deploy"}>
             <NavLink  className="navButton" onClick={deployMenu === false ? handleDeployMenu : handleHomeClick} >
-                <div className="navText home" >Home </div>
+                <div className="navText home" >{english === true ? 'Home' : 'Accueil'} </div>
                 <div className='navIcon home one'>
                     <img src="../../static/menu/menu-01.png"/>
                 </div>
@@ -180,7 +183,7 @@ export default function Menu() {
                 </div>
             </NavLink>
             <NavLink className="navButton" onClick={deployMenu === false ? handleDeployMenu : handleAboutClick} >
-               <div className="navText" >About </div>
+               <div className="navText" >{english === true ? 'About' : 'À propos'} </div>
                 <div className='navIcon about'>
                     <img src="../../static/menu/menu-02.png"/>
                     </div>

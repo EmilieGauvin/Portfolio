@@ -86,6 +86,7 @@ section.main {
 }
 
 .background.loaded{
+  height: 100vh;
   background-color: transparent;
   transition:  background-color 2s;
 }
@@ -146,11 +147,18 @@ section.main {
 
 .face {
   position: absolute;
-  width: 4.5vh;
-  height: 4.5vh;
+  width: 4.7vh;
+  height: 4.7vh;
   border: solid;
   border-color: rgb(255, 255, 255);
 }
+
+/* @media only screen and (min-width: 768px) {
+  .face {
+    width: 4.7vh;
+    height: 4.7vh;
+  }
+} */
 
 .top {
 
@@ -174,13 +182,22 @@ section.main {
 .hole .right{
   background-color: #fbe5e5;
   border: none;
-  transform: rotateY(90deg) translateZ(2.5vh) translateY(16.8vh) scaleX(2) scaleY(5);
-
+  transform: rotateY(90deg) translateZ(2.5vh) translateY(14.75vh) scaleX(2) scaleY(5);
 }
 
 .hole .left{
   background-color: #fbe5e5;
   border: none;
-  transform: rotateY(-180deg) translateZ(2.5vh) translateY(16.2vh) scaleX(2) scaleY(5)
+  transform: rotateY(-180deg) translateZ(2.5vh) translateY(14.3vh) scaleX(2) scaleY(5)
+}
+
+@media only screen and (min-width: 768px) {
+  .hole .right{
+    transform: rotateY(90deg) translateZ(2.5vh) translateY(15.1vh) scaleX(2) scaleY(5);
+  }
+
+  .hole .left{
+    transform: rotateY(-180deg) translateZ(2.5vh) translateY(14.7vh) scaleX(2) scaleY(5)
+  }
 }
 

@@ -16,10 +16,16 @@
   align-items: flex-start;
 }
 
-.home h4.text {
+.home h4.text.english {
   text-align: center;
   width:50vw;
   min-width: 320px;
+}
+
+.home h4.text.french {
+  text-align: center;
+  width:62vw;
+  min-width: 400px;
 }
 
 .home .cubeContainer {

@@ -3,11 +3,16 @@ import Experience from "../Experience/Experience";
 import "./AboutPage.css";
 
 
-export default function AboutPage() {
+export default function AboutPage(props) {
   const experience = new Experience()
   const navigation = experience.navigation
   const [showContent, setShowContent] = useState(false)
-  const [english, setEnglish] = useState(true);
+  const [english, setEnglish] = useState(props.english)
+
+  useEffect(() =>
+  {
+    props.onChange(english)
+  }, [english])
 
   navigation.on('notAboutPage', () =>
   {

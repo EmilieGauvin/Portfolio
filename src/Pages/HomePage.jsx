@@ -3,12 +3,17 @@ import Experience from "../Experience/Experience";
 import "./HomePage.css";
 
 
-export default function HomePage() {
+export default function HomePage(props) {
   const experience = new Experience()
   const navigation = experience.navigation
   const [showContent, setShowContent] = useState(false)
-  const [english, setEnglish] = useState(true)
+  const [english, setEnglish] = useState(props.english)
   const [showInstuction, setShowInstruction] = useState(false);
+
+  useEffect(() =>
+  {
+    props.onChange(english)
+  }, [english])
 
   navigation.on('notHomePage', () =>
   {
@@ -24,14 +29,14 @@ export default function HomePage() {
 
 
   const frenchTitle = `Bonjour`;
-  const frenchText = `Je suis Emilie, une creative developpeuse
-avec un background en architecture,
-design graphique et mathématiques. `
+  const frenchText = `Je suis Emilie, une creative developpeuse avec un background en architecture, design graphique et mathématiques. `
 
   const handleChange = () => 
   {
       setEnglish(prevState=> !prevState);
   }
+
+  
 
   return (
   <div className={showContent === false ? "home hide" : "home show"}>
@@ -64,7 +69,7 @@ design graphique et mathématiques. `
     <section className='main '>
       <div className="line"></div>
       <section className='text home'>
-        <h4 className='text'>{english === true ? englishText : frenchText}</h4>
+        <h4 className={english === true ? 'text english' : 'text french'}>{english === true ? englishText : frenchText}</h4>
       </section>
     </section>
   </div>

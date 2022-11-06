@@ -14,6 +14,7 @@ export default function App() {
     const resources = experience.resources
     const [loaded, setLoaded] = useState(false)
     const [endAnimation, setEndAnimation] = useState(false)
+    const [english, setEnglish] = useState(true)
     // const handleClick1 = () => {
     //     experience.color1()
     // }
@@ -44,6 +45,15 @@ export default function App() {
         })
     }, [resources])
 
+    useEffect(() => {
+        english === true ? experience.englishTrue() : experience.englishFalse()
+    }, [english])
+
+    const changeEnglish = (newEnglish) => {
+        setEnglish(newEnglish);
+        console.log(english)
+      }
+
     return (
         <div className={loaded === false ? 'app. background notLoaded' : 'app. background loaded'}>
             <div className={endAnimation === false ? 'cubeContainer notLoaded' : 'cubeContainer loaded'}>
@@ -66,13 +76,13 @@ export default function App() {
 
             {loaded === true ? 
                 <div className='app'>
-                    <Menu />
+                    <Menu english={english}/>
                     <Routes>
-                    <Route path="*" element={<HomePage />} />
-                        <Route path="/" element={<HomePage />} />
-                        <Route path="about" element={<AboutPage />} />
-                        <Route path="projects" element={<ProjectsPage />} />
-                        <Route path="contact" element={<ContactPage />} />
+                    <Route path="*" element={<HomePage english={english} onChange={changeEnglish}/>} />
+                        <Route path="/" element={<HomePage english={english} onChange={changeEnglish}/>} />
+                        <Route path="about" element={<AboutPage english={english} onChange={changeEnglish}/>} />
+                        <Route path="projects" element={<ProjectsPage english={english} onChange={changeEnglish}/>} />
+                        <Route path="contact" element={<ContactPage english={english} onChange={changeEnglish}/>} />
                     </Routes>
                 </div>
                 : <div className='app'></div>

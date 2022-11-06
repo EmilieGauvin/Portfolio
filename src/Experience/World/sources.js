@@ -45,9 +45,14 @@ export default [
         path: '../static/textures/aimCaps-texture-01.png'
     },
     {
-        name: 'aimCapTextureTriangle',
+        name: 'aimCapTextureTriangleEnglish',
         type: 'texture',
         path: '../static/textures/aimCaps-texture-02.png'
+    },
+    {
+        name: 'aimCapTextureTriangleFrench',
+        type: 'texture',
+        path: '../static/textures/aimCaps-texture-04.png'
     },
     {
         name: 'aimCapTextureCircle',

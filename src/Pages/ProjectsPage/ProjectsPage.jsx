@@ -7,15 +7,18 @@ import projectsContent from "./projectsContent";
 
 
 
-export default function ProjectsPage() {
+export default function ProjectsPage(props) {
   const experience = new Experience()
   const navigation = experience.navigation
   const [showContent, setShowContent] = useState(false)
   const [activeCategory, setActiveCategory] = useState(0)
   const [activeProject, setActiveProject] = useState(0)
-  const [english, setEnglish] = useState(true);
+  const [english, setEnglish] = useState(props.english)
 
-
+  useEffect(() =>
+  {
+    props.onChange(english)
+  }, [english])
 
   navigation.on('notProjectPage', () =>
   {

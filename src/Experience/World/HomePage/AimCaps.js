@@ -28,8 +28,10 @@ export default class AimCaps
         this.backgroundColor6 = new THREE.Color('#fbe5e5')
 
         this.aimCapTextureSquare = this.resources.items.aimCapTextureSquare
-        this.aimCapTextureTriangle = this.resources.items.aimCapTextureTriangle
+        this.aimCapTextureTriangleEnglish = this.resources.items.aimCapTextureTriangleEnglish
+        this.aimCapTextureTriangleFrench = this.resources.items.aimCapTextureTriangleFrench
         this.aimCapTextureCircle = this.resources.items.aimCapTextureCircle
+        
 
         this.circleAimCapSetUp()
         this.squareAimCapSetUp()
@@ -75,10 +77,20 @@ export default class AimCaps
         this.triangleAimCap.material.color = this.backgroundColor6
         this.triangleAimCap.rotation.x = - Math.PI * 0.5
         this.scene.add(this.triangleAimCap)
+        
+        this.englishTrue()
+    }
 
-        this.aimCapTextureTriangle.repeat.set(1, 1)
-        this.aimCapTextureTriangle.rotate = Math.PI * 0.5
-        this.triangleAimCap.material.map = this.aimCapTextureTriangle
+    englishTrue()
+    {
+        this.aimCapTextureTriangleEnglish.repeat.set(1, 1)
+        this.triangleAimCap.material.map = this.aimCapTextureTriangleEnglish
+    }
+
+    englishFalse()
+    {
+        this.aimCapTextureTriangleFrench.repeat.set(1, 1)
+        this.triangleAimCap.material.map = this.aimCapTextureTriangleFrench
     }
 
     circleAimCapHide()

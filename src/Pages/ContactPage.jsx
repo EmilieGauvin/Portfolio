@@ -3,16 +3,16 @@ import Experience from "../Experience/Experience";
 import "./ContactPage.css";
 
 
-export default function ContactPage() {
+export default function ContactPage(props) {
   const experience = new Experience()
   const navigation = experience.navigation
   const [showContent, setShowContent] = useState(false)
-  const [english, setEnglish] = useState(true);
+  const [english, setEnglish] = useState(props.english)
 
-  // navigation.on('contactPage', () =>
-  // {
-  //   setShowContent(true)
-  // })
+  useEffect(() =>
+  {
+    props.onChange(english)
+  }, [english])
 
   navigation.on('notContactPage', () =>
   {
