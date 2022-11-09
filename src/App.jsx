@@ -15,6 +15,7 @@ export default function App() {
     const [loaded, setLoaded] = useState(false)
     const [endAnimation, setEndAnimation] = useState(false)
     const [english, setEnglish] = useState(true)
+    
     // const handleClick1 = () => {
     //     experience.color1()
     // }

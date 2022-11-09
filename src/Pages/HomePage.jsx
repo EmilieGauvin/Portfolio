@@ -10,6 +10,7 @@ export default function HomePage(props) {
   const [english, setEnglish] = useState(props.english)
   const [showInstuction, setShowInstruction] = useState(false);
 
+
   useEffect(() =>
   {
     props.onChange(english)

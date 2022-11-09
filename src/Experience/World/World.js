@@ -5,8 +5,8 @@ import ObjectsAnimation from './HomePage/ObjectsAnimation'
 import Attic from './AboutPage/Attic'
 import Environment from './Environment'
 import LivingRoom from "./ProjectPage/LivingRoom";
-import TextPosition from './HomePage/TextPosition';
 import AimCaps from './HomePage/AimCaps';
+import Sun from './ContactPage/Sun';
 
 
 export default class World
@@ -20,14 +20,15 @@ export default class World
         this.renderer = this.experience.renderer
         this.resources = this.experience.resources
         this.navigation = this.experience.navigation
+
         this.resources.on('ready', () =>
         {
+            this.sun = new Sun
             this.objectsAnimation = new ObjectsAnimation()    
             this.attic = new Attic()
             this.livingRoom = new LivingRoom()
             this.environment= new Environment()
             this.aimCaps = new AimCaps()
-            // this.textPosition = new TextPosition()
 
         })
     }
@@ -111,7 +112,7 @@ export default class World
     projectPage()
     {
         if (this.livingRoom) this.livingRoom.showMaterials()
-        this.renderer.unrealBloomTransitionStrength(0.22)
+        this.renderer.unrealBloomTransitionStrength(0.22) //0.22
 
         // this.renderer.unrealBloomSetStrength(0.22)
         this.resources.on('ready', () =>
@@ -142,7 +143,7 @@ export default class World
 
     contactPage()
     {
-        this.renderer.unrealBloomTransitionStrength(0.5)
+        this.renderer.unrealBloomTransitionStrength(0)
         // this.renderer.unrealBloomSetStrength(0.5)
         this.resources.on('ready', () =>
         {
@@ -172,6 +173,7 @@ export default class World
     {
         if (this.objectsAnimation) this.objectsAnimation.update() 
         if (this.livingRoom) this.livingRoom.update()
+        if (this.sun) this.sun.update()
     }
 
 }

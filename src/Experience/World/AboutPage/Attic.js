@@ -25,6 +25,7 @@ export default class Attic
         this.resources = this.experience.resources
         this.resource = this.resources.items.atticModel
         this.atticTexture = this.resources.items.atticTexture
+        // this.atticTexture.encoding = THREE.sRGBEncoding
 
         // Base
         this.scaleRatio = this.experience.scaleRatio

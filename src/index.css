@@ -42,7 +42,7 @@ body.grab {
   cursor: grab;
 }
 
-body.grabbing {
+body.grab.grabbing {
   cursor: grabbing;
 }
 

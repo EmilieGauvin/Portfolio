@@ -44,7 +44,7 @@ export default class Objects
         // this.circleColor3 = new THREE.Color('#b693ff')
         // this.circleColor4 = new THREE.Color('#fd6f9a')
         // this.circleColor5 = new THREE.Color('#ffde8d')
-        this.circleColor6 = new THREE.Color('#fd6f9a')
+        this.circleColor6 = new THREE.Color('#fe9107')
 
         // this.squareColor1 = new THREE.Color('#ea3942')
         // this.squareColor2 = new THREE.Color('#ea3942')
@@ -58,7 +58,7 @@ export default class Objects
         // this.triangleColor3 = new THREE.Color('#fe9107')
         // this.triangleColor4 = new THREE.Color('#fe9107')
         // this.triangleColor5 = new THREE.Color('#e64e25')
-        this.triangleColor6 = new THREE.Color('#fe9107')
+        this.triangleColor6 = new THREE.Color('#fd6f9a')
 
         this.circles()
         this.squares()

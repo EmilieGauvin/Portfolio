@@ -26,7 +26,7 @@ export default class Experience {
         window.experience = this
 
         //Stats, run 'npm install --save stats.js'
-        this.statsActive = false //window.location.hash === '#stats'
+        this.statsActive = true //window.location.hash === '#stats'
         if (this.statsActive) {
             this.stats = new Stats()
             this.stats.showPanel(0) // 0: fps, 1: ms, 2: mb, 3+: custom
@@ -55,7 +55,7 @@ export default class Experience {
         this.resize()
 
         //Base positions
-        this.circlePosition = {x: -2.25, y: 1.23, z: -5, radius: 1.85 }
+        this.circlePosition = {x: -3, y: 0.74, z: -5, radius: 1.51 }
         this.squarePosition = {x: 1.70, y: -5.255, z: -5, radius: 2.38 }
         this.trianglePosition = {x: 1.70, y: -2.38, z: -5, radius: 2.38 }
 
@@ -189,7 +189,7 @@ export default class Experience {
 
         this.navigation.on('transitionContactPage', () => {
             //Update Camera
-            this.camera.goTo(this.circlePosition.x, this.circlePosition.y, 0, 'contactPage', true, 0.05)
+            this.camera.goTo(this.circlePosition.x, this.circlePosition.y, 0, 'contactPage', true, 0.07)
             //Launch ProjectPage
             this.world.transitionContactPage()
         })

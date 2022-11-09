@@ -73,11 +73,13 @@ export default class Renderer
         )
         this.instance.physicallyCorrectLights = true
         // this.instance.outputEncoding = THREE.sRGBEncoding
-        // this.instance.toneMapping = THREE.CineonToneMapping
+        // this.instance.gammaFactor = 2.2;
+        // this.instance.outputEncoding = THREE.sRGBEncoding;
+        // this.instance.toneMapping = THREE.ACESFilmicToneMapping
         // this.instance.toneMappingExposure = 1.75
         this.instance.shadowMap.enabled = true
         this.instance.shadowMap.type = THREE.PCFSoftShadowMap
-        // this.instance.setClearColor('#2B2BED')
+        // this.instance.setClearColor(0x000000, 0)
         this.scene.background = this.backgroundColor6
         this.instance.setSize(this.sizes.width, this.sizes.height)
         this.instance.setPixelRatio(this.sizes.pixelRatio)

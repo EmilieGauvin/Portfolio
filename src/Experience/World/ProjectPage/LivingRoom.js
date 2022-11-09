@@ -30,6 +30,7 @@ export default class LivingRoom
         this.resources = this.experience.resources
         this.resource = this.resources.items.livingRoomModel
         this.livingRoomTexture = this.resources.items.livingRoomTexture
+        // this.livingRoomTexture.encoding = THREE.sRGBEncoding
 
         // Base
         this.scaleRatio = this.experience.scaleRatio

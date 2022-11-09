@@ -17,6 +17,7 @@ export default function AboutPage(props) {
   navigation.on('notAboutPage', () =>
   {
     setShowContent(false)
+
   })
 
   useEffect(() => {

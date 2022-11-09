@@ -131,13 +131,14 @@ export default class ObjectsAnimation extends Objects
             if(this.intersects.length)
             {            
                 document.querySelector("body").classList.add("grabbing")
+                console.log('grabbing')
 
                 if(!this.currentIntersect)
                 this.currentIntersect = this.intersects[0].object
                 this.currentIntersectPlane.position.z = this.currentIntersect.position.z
                 
                 this.ObjectMovingPhysicsOff(this.currentIntersect)
-                this.currentIntersect.position.z +=0.2
+                this.currentIntersect.position.z += 2
             }
             else
             {
@@ -158,6 +159,7 @@ export default class ObjectsAnimation extends Objects
             this.raycasterPlane.setFromCamera(this.pointer, this.camera)
             this.intersection = this.raycasterPlane.intersectObject(this.currentIntersectPlane)
             this.currentIntersect.position.copy(this.intersection[0].point)
+            this.currentIntersect.position.z += 2
             }
         }
     }
@@ -167,7 +169,7 @@ export default class ObjectsAnimation extends Objects
         if (this.dragControlsActive === true) 
         { 
             document.querySelector("body").classList.remove("grabbing")
-
+            console.log('dropping')
             this.currentIntersect = null
             this.ObjectMovingPhysicsOn(this.circleMoving)
             this.ObjectMovingPhysicsOn(this.squareMoving)
