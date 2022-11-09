@@ -23,7 +23,7 @@ export default class Environment
         this.environmentMap.texture = this.resources.items.environmentMapTexture
 
         this.envMapToDispose = []
-        this.setupEnvironmentMap()
+        // this.setupEnvironmentMap()
     }
 
     setupEnvironmentMap()

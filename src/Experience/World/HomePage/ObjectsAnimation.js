@@ -62,6 +62,9 @@ export default class ObjectsAnimation extends Objects
         this.triangleMovingBody.position.set(0, 0, 30)
         this.squareMoving.position.set(0, 0, 30)
         this.squareMovingBody.position.set(0, 0, 30)
+        this.circleMoving.material.opacity = 1
+        this.triangleMoving.material.opacity = 1
+        this.squareMoving.material.opacity = 1
     }
 
     resetToHomePage()
@@ -231,26 +234,43 @@ export default class ObjectsAnimation extends Objects
     {
         const aimPositionX = this.getAimFromMesh(this.currentIntersect).position.x
         const aimPositionY = this.getAimFromMesh(this.currentIntersect).position.y
-        const insertionAimZ = -6 * this.scaleRatio
+        const insertionAimZ = -8 * this.scaleRatio
         const insertionAimVector3 = new THREE.Vector3(aimPositionX, aimPositionY, insertionAimZ)
 
-        if (this.currentIntersect.position.distanceTo(insertionAimVector3) > 0.001)
-        {
-            this.currentIntersect.position.lerp(insertionAimVector3, 0.05)
+        // if (this.currentIntersect.position.distanceTo(insertionAimVector3) > 0.001)
+        // {
+        //     this.currentIntersect.position.lerp(insertionAimVector3, 0.05)
+            
+        //     if (this.currentIntersect.position.distanceTo(insertionAimVector3) < 0.3 * this.scaleRatio)
+        //     {
+        //         this.currentIntersect.material.opacity -=0.005
+        //     }
 
-            if (this.currentIntersect.position.distanceTo(insertionAimVector3) < 0.01)
-            {
-                this.currentIntersect.position.copy(insertionAimVector3)
-            }
-        }
-        
-        else if 
-            ((this.currentIntersect.position.x === insertionAimVector3.x) 
-            && (this.currentIntersect.position.y === insertionAimVector3.y) 
-            && (this.currentIntersect.position.z === insertionAimVector3.z))
+        //     if (this.currentIntersect.position.distanceTo(insertionAimVector3) < 0.01)
+        //     {
+        //         this.currentIntersect.position.copy(insertionAimVector3)
+        //     }
+        // }
+
+        if (this.currentIntersect.position.z > insertionAimZ)
         {
-            this.currentIntersect.position.z = insertionAimZ
+            this.currentIntersect.position.z -=0.07
+
+            if (this.currentIntersect.position.z < insertionAimZ/2) 
+            {
+                this.currentIntersect.material.opacity -=0.02
+            }
+        }    
+        
+        else 
+        // if 
+        //     ((this.currentIntersect.position.x === insertionAimVector3.x) 
+        //     && (this.currentIntersect.position.y === insertionAimVector3.y) 
+        //     && (this.currentIntersect.position.z === insertionAimVector3.z))
+        {
+            // this.currentIntersect.position.z = insertionAimZ
             this.currentIntersect = null
+
             this.insertionOn = false
 
             this.resetObjects()

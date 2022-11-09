@@ -15,6 +15,7 @@ export default class Camera
         this.canvas = this.experience.canvas
         this.pointerEvents = this.experience.pointerEvents
         this.pointer = this.experience.pointer
+        this.time = this.experience.time
         
         this.navigation = this.experience.navigation
         this.setInstance()
@@ -72,9 +73,10 @@ export default class Camera
         this.CameraAimX = CameraAimX
         this.CameraAimY = CameraAimY
         this.CameraAimZ = CameraAimZ
-        this.instance.position.set(CameraAimX * this.scaleRatio, CameraAimY * this.scaleRatio, CameraAimZ * this.scaleRatio)
+        this.instance.position.set(CameraAimX * this.scaleRatio, CameraAimY * this.scaleRatio, CameraAimZ)
         this.instance.fov = 75
         this.instance.updateProjectionMatrix()
+        if ( !/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) )
         this.parallaxEnabled = true
     }
 
@@ -83,8 +85,6 @@ export default class Camera
         this.instance.aspect = this.sizes.width / this.sizes.height
         this.instance.updateProjectionMatrix()
         this.scaleRatio = this.experience.scaleRatio
-
-        
     }
 
     update()
@@ -98,7 +98,7 @@ export default class Camera
         {
             if ((this.instance.fov != 75) && (this.fov35To75 === true))
             {
-                this.instance.fov += 0.5
+                this.instance.fov += 1
                 this.instance.updateProjectionMatrix()
             } 
 
@@ -112,23 +112,30 @@ export default class Camera
                     this.instance.updateProjectionMatrix()
                 }
             } 
+
             this.cameraAimVector3 = new THREE.Vector3(this.CameraAimX * this.scaleRatio, this.CameraAimY * this.scaleRatio, this.CameraAimZ ) 
-            
             if (this.instance.position.distanceTo(this.cameraAimVector3) > 0.001)
             {
+                console.log(this.time.delta)
+                if (this.instance.position.z > this.CameraAimZ )
+                {
+                    this.instance.position.z -= 0.02
+                }
                 this.instance.position.lerp(this.cameraAimVector3, this.speed)
                 if (this.instance.position.distanceTo(this.cameraAimVector3) < 0.05) this.instance.position.copy(this.cameraAimVector3)
             }
+
             
             else 
             // if (this.instance.position.distanceTo(this.cameraAimVector3) === 0)
-            //     ((this.instance.position.x === this.cameraAimVector3.x) 
-            //     && (this.instance.position.y === this.cameraAimVector3.y) 
+            //    if ((this.instance.position.x === this.cameraAimVector3.x) 
+            //     && (this.instance.position.y === this.cameraAimVector3.y) )
             //     && (this.instance.position.z === this.cameraAimVector3.z)
             //     // && (this.instance.fov === 75)
             //     )
             {
                 this.transition = false
+                if ( !/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) )
                 this.parallaxEnabled = true 
 
                 if (this.pageAim === 'transitionAboutPage') 
