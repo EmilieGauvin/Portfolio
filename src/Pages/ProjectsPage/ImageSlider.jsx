@@ -6,17 +6,18 @@ import { useState, useEffect } from "react";
 const slideStyles = {
   width: "100%",
   height: "100%",
-  borderRadius: "10px",
+  // borderRadius: "10px",
   backgroundSize: "cover",
   backgroundPosition: "center",
+  position: 'absolute',
 };
 
 const rightArrowStyles = {
   position: "absolute",
   top: "50%",
   transform: "translate(0, -50%)",
-  right: "32px",
-  fontSize: "45px",
+  right: "15px",
+  fontSize: "calc(8px + 1.5vw)",
   color: "#fff",
   zIndex: 1,
   cursor: "pointer",
@@ -26,8 +27,8 @@ const leftArrowStyles = {
   position: "absolute",
   top: "50%",
   transform: "translate(0, -50%)",
-  left: "32px",
-  fontSize: "45px",
+  left: "15px",
+  fontSize: "calc(8px + 1.5vw)",
   color: "#fff",
   zIndex: 1,
   cursor: "pointer",
@@ -42,13 +43,17 @@ const sliderStyles = {
 const dotsContainerStyles = {
   display: "flex",
   justifyContent: "center",
+  zIndex:1,
+  position:'absolute',
+  bottom:'0',
+  width:'100%'
 };
 
 const dotStyle = {
-  margin: "0 3px",
+  margin: "0 2px",
   cursor: "pointer",
-  fontSize: "15px",
-  color: 'white'
+  fontSize: "calc(6px + 0.5vw)",
+  color: 'white',
 };
 
 const ImageSlider = ({ slides }) => {
@@ -71,15 +76,7 @@ const ImageSlider = ({ slides }) => {
 
   const goToSlide = (slideIndex) => {
     setCurrentIndex(slideIndex);
-    const src = `url(${slides[slideIndex].url})`
-    document.querySelector(".slide").style.backgroundImage = src
   };
-
-  const slideStylesWidthBackground = {
-    ...slideStyles,
-    // backgroundImage: `url(${slides[currentIndex].url})`
-  };
-
 
 
   return (
@@ -92,7 +89,12 @@ const ImageSlider = ({ slides }) => {
           ❱
         </div>
       </div>
-      <div className='slide' style={slideStylesWidthBackground}></div>
+      {slides.map((slide, slideIndex) => (
+          <div
+            style={currentIndex === slideIndex ? {...slideStyles, backgroundImage: `url(${slides[slideIndex].url})`, visibility: 'visible'} : {...slideStyles, backgroundImage: `url(${slides[slideIndex].url})`, visibility: 'hidden'}}
+            key={slideIndex}
+          ></div>
+        ))}
       <div style={dotsContainerStyles}>
         {slides.map((slide, slideIndex) => (
           <div

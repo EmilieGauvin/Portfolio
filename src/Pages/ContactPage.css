@@ -8,13 +8,27 @@
 }
 
 .contact section.text{
-  height: 100%;
+  height: 60%;
   display: flex;
-  justify-content: center;
-  align-items: flex-start;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 .contact h4.text
 {
   text-align: center;
+}
+
+.email {
+  user-select:text;
+  -webkit-user-select:text;
+  -moz-user-select:text;
+  -ms-user-select:text;
+}
+
+.social{
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
 }

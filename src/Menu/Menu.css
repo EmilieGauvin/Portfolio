@@ -35,8 +35,8 @@ section.menu.title {
 
 .navButton .navIcon {
   display: flex;
-  height: 2.8vw;
-  width: 2.8vw;
+  height: 2.5vh;
+  width: 2.5vh;
 }
 
 .navIcon img {
@@ -45,9 +45,18 @@ section.menu.title {
  }
 
 .navButton .navText {
-  font-size: 2.8vw;
-  line-height: 3vw;
+  line-height: 2.5vh;
   white-space: break-spaces;
+}
+
+@media only screen and (min-width: 768px) {
+  .navButton .navIcon {
+    height: 3.5vh;
+    width: 3.5vh;
+  }
+  .navButton .navText {
+    line-height: 3.5vh;
+  }
 }
 
 
@@ -70,15 +79,15 @@ section.menu.title {
 }
 
 .concentrate .navIcon.home.one{
-  transform: translateY(215%) rotate(-45deg);
+  transform: translateY(207%) translateX(-5%) rotate(-45deg);
 }
 
 .concentrate .navIcon.home.two{
-  transform: translateY(250%) rotate(-45deg);
+  transform: translateY(242%) translateX(-5%) rotate(-45deg);
 }
 
 .concentrate .navIcon.home.three{
-  transform: translateY(285%) rotate(-45deg);
+  transform: translateY(277%) translateX(-5%) rotate(-45deg);
 }
 
 .concentrate .navIcon.about{
@@ -86,7 +95,7 @@ section.menu.title {
 }
 
 .concentrate .navIcon.project{
-  transform: translateY(-48%);
+  transform: translateY(-43%);
 }
 
 .concentrate .navIcon.contact{

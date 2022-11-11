@@ -37,7 +37,7 @@ export default [
     {
         name: 'livingRoomTexture',
         type: 'texture',
-        path: '../static/baked_livingRoom.jpg'
+        path: '../static/baked_livingRoom.png'
     },
     {
         name: 'aimCapTextureSquare',

@@ -112,14 +112,14 @@ export default class World
     projectPage()
     {
         if (this.livingRoom) this.livingRoom.showMaterials()
-        this.renderer.unrealBloomTransitionStrength(0.22) //0.22
+        this.renderer.unrealBloomTransitionStrength(0.15) //0.22
 
         // this.renderer.unrealBloomSetStrength(0.22)
-        this.resources.on('ready', () =>
-        {
+        // this.resources.on('ready', () =>
+        // {
             if (this.attic) this.attic.hideMaterials()
             if (this.livingRoom) this.livingRoom.showMaterials()
-        })
+        // })
 
     }
 

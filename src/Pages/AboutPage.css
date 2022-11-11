@@ -1,4 +1,4 @@
-.about
+.about-page
 {
   text-align: center;
   height: 100vh;
@@ -13,66 +13,110 @@
   transition: opacity 3s
 }
 
-.about section.title{
+.about-page section.title{
   color: #e9d6cd;
 }
 
 section.text-cv{
-  /* height: 45vh; */
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   color: #e9d6cd;
 }
 
-.about .line:before{
+@media only screen and (min-width: 768px)
+{ 
+  section.text-cv {
+    width:60%;
+    min-width: 780px;
+  }
+}
+
+.about-page .line:before{
   background: #e9d6cd;
 }
 
-.about .cv
+.about-page .cv
 {
     right: 0px;
     /* text-align: right; */
 }
 
-.about .text
+.about-page .text
 {
   right: 0px;
 }
 
 section.skills {
   display: flex;
-  justify-content: space-around;
+  flex-direction : column;
+  justify-content: space-between;
   align-items: center;
   /* height:30vh; */
 }
 
+@media only screen and (min-width: 768px)
+{ 
+  section.skills {
+      flex-direction : row;
+      justify-content: space-around;
+      align-items: flex-start;
+      /* height:25vh; */
+      padding-bottom: 5vh;
+  }
+}
 
-.skills div{
+
+
+div.skills-column{
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  align-items:center;
+  width: 100%;
+  height: 45%;
+}
+
+@media only screen and (min-width: 768px)
+{ 
+  div.skills-column{
+    width: 40vw;
+    height: 100%;
+  }
+}
+.skills-column div{
+  display: flex;
+  flex-direction: row;
   justify-content: center;
-  width: 29%;
-  border:solid;
-  height: 100%;
+  /* border:solid; */
+  /* height: 100%; */
+  height: calc(30px + 1vw);
   
 }
 
 .skill{
-  height: calc(15px + 1vw);
-  padding-bottom: calc(5px + 0.5vw);
+  height: calc(15px + 0.5vw);
+  /* padding-bottom: calc(5px + 0.5vw); */
+  padding: 0 1vw;
   display: flex;
+  justify-content: center;
   flex-direction: row;
   white-space: nowrap;
-}
-
-/* .right-align .skill{
-  text-align: right;
+  width: 100%
 }
 
 .left-align .skill{
-  text-align: left;
-} */
+  color: inherit;
+} 
+@media only screen and (min-width: 768px)
+{ 
+  .left-align .skill{
+    color: #e9d6cd;
+  } 
+}
+
 
 .skill img{
   position : relative;
@@ -80,4 +124,15 @@ section.skills {
   height : 100%;
   padding-right: calc(5px + 0.5vw);
   padding-left: calc(5px + 0.5vw);
+}
+
+.line.skills-division{
+  visibility: visible;
+  width:50%
+}
+@media only screen and (min-width: 768px)
+{ 
+  .line.skills-division{
+    visibility: hidden
+  }
 }

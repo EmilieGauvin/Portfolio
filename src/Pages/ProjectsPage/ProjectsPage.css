@@ -20,7 +20,7 @@
 
 .project-page section.title.huge {
   transform-origin: top left;
-  transform: translateX(calc(50% - 2vw));
+  transform: translateX(50vw);
   transition: transform 0.3s;
 }
 
@@ -33,15 +33,80 @@
 .huge.title button{
   transform-origin: top left;
   text-align: left;
-  transform: translateX(calc(-50% - 1vw));
+  transform: translateX(calc(-50% - 2vw));
   transition: transform 0.3s;
 }
 
 .project-page section.project-menu {
   display: flex;
-  /* height: 10vh; */
+  flex-direction: row;
+  align-items: center;
+}
+@media only screen and (min-width: 768px)
+{ 
+
+  .project-page section.project-menu{
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content : flex-start;
+    height: 60vh;
+    width: 25vw;
+    
+  }
 }
 
+.line.under.huge {
+  transform-origin: center center;
+  transform: translateY(calc(7vh*1.5));
+  transition: transform 0.3s;
+}
+
+
+.project-page section.main{
+  align-items:flex-start;
+  
+}
+
+@media only screen and (min-width: 768px)
+{ 
+  .project-page section.main.huge{
+    flex-direction: column;
+        align-items: center;
+    justify-content: space-between;
+  }
+
+  .project-page section.main{
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items:flex-start;
+    padding-left:0;
+    
+  }
+  .project-page .line {
+    position: absolute;
+    width: 96vw;
+    left: 2vw;
+  }
+
+  .project-page .line.under {
+    bottom:50%;
+    left: calc(23vw - 48vh);
+    width:96vh;
+    height:0;
+    transform: rotate(90deg) ;
+    z-index:2;
+  }
+
+  .project-page .huge.line.under{
+    position: relative;
+    bottom:auto;
+    left: auto;
+    width:100%;
+    transform: rotate(0deg) translateY(calc(43vh));
+    width:100%;
+  }
+
+}
 
 
 div.categories {
@@ -51,27 +116,34 @@ div.categories {
   padding-right: calc(12px + 2vw);
   align-items: flex-start;
   transform-origin: top left;
-  transition: transform 0.3s
+  transition: transform 0.3s;
+  width: 50vw;
 }
+
+
 
 div.categories.huge {
   transform-origin: top left;
-  transform: scale(2) translateX(calc(50% - 2vw));
+  transform: scale(2) translateX(23vw);
   transition: transform 0.3s;
-  width: calc(100vw / 2);
+  /* width: calc(100vw / 4); */
 }
 
-.project-page button{
-  align-self: flex-start;
-  text-align: left;
-  transform-origin: top left;
-  transition: transform 0.3s;
+@media only screen and (min-width: 768px)
+{ 
+  div.categories {
+    padding-top: calc(12px + 2vw);
+    width: 100%;
+  }
+  div.categories.huge {
+    transform: scale(2) translateX(6.5vw);
+  }
 }
 
 
 .huge.categories h4{
   transform-origin: top left;
-  transform: translateX(calc(-50% - 2vw));
+  transform: translateX(calc(-50%));
   transition: transform 0.3s;
 }
 
@@ -82,6 +154,16 @@ div.categories.huge {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  height:90%
+}
+
+@media only screen and (min-width: 768px)
+{ 
+  .projects-thumbnails {
+    padding-top: calc(6px + 1vw);
+    padding-left: calc(6px + 1vw);
+    height:auto;
+  }
 }
 
 .projects-thumbnails.hide{
@@ -102,8 +184,10 @@ transition: opacity 0.5s
 section.project {
   height: 75%;
   display: flex;
-  flex-direction: column-reverse;
-  justify-content: space-between;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 0;
+  /* overflow:hidden; */
 }
 
 @media only screen and (min-width: 768px)
@@ -112,18 +196,16 @@ section.project {
     flex-direction: row;
     align-items:flex-start;
     justify-content : center;
-    height: 70%;
+    height: 100%;
+    width: 100%;
   }
 }
 
 .project .image  {
   /* background: rgba(255, 0, 0, 0.288); */
+  height: auto;
   display: flex;
   justify-content: center;
-  /* width: 100vw; */
-  /* height: 100vw; */
-
-  /* margin: 0 auto; */
 }
 
  @media only screen and (min-width: 768px)
@@ -137,41 +219,42 @@ section.project {
 }
 
 .image .imageSlider {
-  width: 75vw;
-  height: 75vw;
-  padding: calc(12px + 2vw);
+  width: 70vw;
+  height: 70vw;
+  max-width: 45vh;
+  max-height: 45vh;
+  padding: 0;
  }
 
  @media only screen and (min-width: 768px)
 { 
   .image .imageSlider{
-    width: 50vh;
-    height: 50vh;
+    padding: calc(12px + 2vw);
+    width: 35vw;
+    height: 35vw;
+    max-width: 65vh;
+    max-height: 65vh;
   }
 }
 
-.project .text  p{
-  /* background: rgba(76, 0, 255, 0.274); */
-  /* height: 100%; */
-  /* width: auto; */
-  max-width: 50vh;;
+.project .text{
   padding: calc(12px + 2vw);
-  overflow-y: auto ;
+  height: 30%;
+  overflow-y: auto;
+  height: auto;
 }
+
+@media only screen and (min-width: 768px)
+{ 
+  .project .text{
+    height: auto;
+    padding-left: 0;
+  }
+}
+
 
 .hidden.project{
   visibility:hidden
 }
 
-.line.bottom.huge {
-  transform-origin: center center;
-  transform: translateY(calc(9vh*1.5));
-  transition: transform 0.3s;
-}
 
- @media only screen and (min-width: 768px)
-{ 
-  .line.bottom.huge {
-    transform: translateY(calc(15vh));
-  }
-}

@@ -20,8 +20,7 @@
   -ms-user-select: none;
 }
 html,
-body,
-.webgl
+body
 {
     overflow: hidden;
 }
@@ -55,8 +54,8 @@ h1{
 
 h4 {
   font-weight: 400;
-  font-size: calc(12px + 1.5vw);
-  line-height: calc(14px + 1.8vw);
+  font-size: calc(14px + 1.1vw);
+  /* line-height: calc(11px + 1.1vw); */
   white-space: break-spaces;
     margin:0;
   padding:0;
@@ -64,14 +63,23 @@ h4 {
 
 h5 {
   font-weight: 400;
-  font-size: calc(9.5px + 1.2vw);
+  font-size: calc(11px + 0.8vw);
+  white-space: break-spaces;
+  margin:0;
+  padding:0;
+}
+
+p {
+  font-weight: 400;
+  font-size: calc(10px + 0.7vw);
+  line-height: calc(11px + 1.1vw);
   margin:0;
   padding:0;
 }
 
 .navButton .navText{
   font-weight: 400;
-  font-size: calc(9.5px + 1.2vw);
+  font-size: calc(12px + 0.5vw);
   margin:0;
   padding:0;
 }
@@ -91,12 +99,19 @@ h5 {
 }
 
 .textButton{
-  white-space: nowrap;
-  cursor: pointer;
+  /* white-space: nowrap; */
+  cursor: pointer !important;
+  color: inherit !important;
+  text-decoration: none !important;
 }
 
+.textButton:hover{
+  text-decoration: underline !important;
+}
+
+
 .textButton.active {
-  color:rgb(110, 42, 165);
+  color:rgb(110, 42, 165)!important;
 }
 
 button{
@@ -131,6 +146,7 @@ button:hover
   width: 100vw;
   height: 100vh;
   top:0;
+  overflow: hidden;
 }
 
 .webgl.blurred {

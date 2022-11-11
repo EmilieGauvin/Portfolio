@@ -51,22 +51,22 @@ export default function ProjectsPage(props) {
         <h1 className='textButton' onClick = {handleCategory0}>Projects</h1>
         <button onClick={handleChangeLanguage}>{english === true ? 'en français ?' : 'in english?'}</button>
       </section>
-      <section className='main'>
+      <section className={activeCategory === 0 ? 'huge main' : ' main'}>
         <div className="line"></div>
 
         <section className='project-menu '>
           <div className={activeCategory === 0 ? 'categories huge' : 'categories'}>
             {/* <button className={activeCategory === 1 ? 'active' : ''} onClick = {handleCategory1} name='category1'> */}
               <h4 className={activeCategory === 1 ? 'active textButton' : 'textButton'} onClick = {handleCategory1} name='category1'>
-                { english === true ? 'interactive design' : 'design intéractif'}</h4>
+                { english === true ? 'Graphics' : 'Graphismes'}</h4>
                 {/* </button> */}
             {/* <button className={activeCategory === 2 ? 'active' : ''} onClick = {handleCategory2} name='category2'> */}
               <h4 className={activeCategory === 2 ? 'active textButton' : 'textButton'} onClick = {handleCategory2} name='category2'>
-                { english === true ? 'interactive experiences' : 'expériences intéractives'}</h4>
+                { english === true ? 'Games' : 'Jeux'}</h4>
                 {/* </button> */}
             {/* <button className={activeCategory === 3 ? 'active' : ''} onClick = {handleCategory3} name='category3'> */}
               <h4 className={activeCategory === 3 ? 'active textButton' : 'textButton'} onClick = {handleCategory3} name='category3'>
-                { english === true ? '3d models' : 'modèles 3D'}</h4>
+                { english === true ? '3d models' : 'Modèles 3D'}</h4>
               {/* </button> */}
           </div>
           {activeCategory === 0 ? <NoCategory/> : 
@@ -78,7 +78,7 @@ export default function ProjectsPage(props) {
           </div> */}
         </section>
 
-        <div className={activeCategory === 0 ? 'huge line bottom' : ' line bottom'}></div>
+        <div className={activeCategory === 0 ? 'huge line under' : ' line under'}></div>
         
         < ProjectTemplate english = {english} content = {projectsContent} activeProject = {activeProject}/>
       </section>  
@@ -123,15 +123,15 @@ function Category1(props)
     return (
       <div className={showContent === false ? "projects-thumbnails hide" : "projects-thumbnails show"}>
         <h5 className={activeProject === 1 ? 'active textButton' : ' textButton'} onClick={handleProject1}>
-          {english === true ? projectsContent[1].englishTitle : projectsContent[1].frenchTitle}
+          <i>{english === true ? projectsContent[1].englishTitle : projectsContent[1].frenchTitle}</i>
           {/* <img src = {projectsContent[1].slides[0].url}/> */}
         </h5>
         <h5 className={activeProject === 2 ? 'active textButton' : ' textButton'} onClick={handleProject2}>
-          {english === true ? projectsContent[2].englishTitle : projectsContent[2].frenchTitle}
+          <i>{english === true ? projectsContent[2].englishTitle : projectsContent[2].frenchTitle}</i>
           {/* <img src = {projectsContent[2].slides[0].url}/> */}
         </h5>
         <h5 className={activeProject === 3 ? 'active textButton' : ' textButton'} onClick={handleProject3}>
-          {english === true ? projectsContent[3].englishTitle : projectsContent[3].frenchTitle}
+          <i>{english === true ? projectsContent[3].englishTitle : projectsContent[3].frenchTitle}</i>
           {/* <img src = {projectsContent[3].slides[0].url}/> */}
         </h5>
       </div>
@@ -163,7 +163,7 @@ function Category2(props)
   return (
     <div className={showContent === false ? "projects-thumbnails hide" : "projects-thumbnails show"}>
       <h5 className={activeProject === 4 ? 'active textButton' : ' textButton'} onClick={handleProject4}>
-        {english === true ? projectsContent[4].englishTitle : projectsContent[4].frenchTitle}
+        <i>{english === true ? projectsContent[4].englishTitle : projectsContent[4].frenchTitle}</i>
           {/* <img src = {projectsContent[4].slides[0].url}/> */}
         </h5>
         <h5 className='placeholder'>place holder</h5>
@@ -196,11 +196,11 @@ function Category3(props)
     return (
       <div className={showContent === false ? "projects-thumbnails hide" : "projects-thumbnails show"}>
         <h5 className={activeProject === 5 ? 'active textButton' : ' textButton'} onClick={handleProject5}>
-          {english === true ? projectsContent[5].englishTitle : projectsContent[5].frenchTitle}
+          <i>{english === true ? projectsContent[5].englishTitle : projectsContent[5].frenchTitle}</i>
           {/* <img src = {projectsContent[5].slides[0].url}/> */}
         </h5>
         <h5 className={activeProject === 6 ? 'active textButton' : ' textButton'} onClick={handleProject6}>
-          {english === true ? projectsContent[6].englishTitle : projectsContent[6].frenchTitle}
+          <i>{english === true ? projectsContent[6].englishTitle : projectsContent[6].frenchTitle}</i>
           {/* <img src = {projectsContent[6].slides[0].url}/> */}
         </h5>
         <h5 className='placeholder'>place holder</h5>

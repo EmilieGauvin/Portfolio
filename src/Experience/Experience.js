@@ -26,7 +26,7 @@ export default class Experience {
         window.experience = this
 
         //Stats, run 'npm install --save stats.js'
-        this.statsActive = true //window.location.hash === '#stats'
+        this.statsActive = false //window.location.hash === '#stats'
         if (this.statsActive) {
             this.stats = new Stats()
             this.stats.showPanel(0) // 0: fps, 1: ms, 2: mb, 3+: custom

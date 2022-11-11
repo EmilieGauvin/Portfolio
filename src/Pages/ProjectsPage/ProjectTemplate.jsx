@@ -18,8 +18,9 @@ return (
     </div>
     <div className='text'>
       <h4>{english === true ? content[activeProject].englishTitle : content[activeProject].frenchTitle}</h4>
+      <a className='textButton' href={content[activeProject].link} target="_blank"><i>{activeProject === 0 ? "" : english === true ? 'visit webpage' : 'visiter site'}</i></a>
+      
       {english === true ? content[activeProject].englishText : content[activeProject].frenchText}
-      <a href={content[activeProject].link} target="_blank">{activeProject === 0 ? "" : english === true ? 'visit webpage' : 'visiter site'}</a>
     </div>
   </section>
 )}

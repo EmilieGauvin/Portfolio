@@ -26,11 +26,15 @@ export default function HomePage(props) {
   }, [])
 
   const englishTitle = 'Hello';
-  const englishText = `I’m Emilie, a creative developer with a background in architecture, graphic design, and mathematics.`
+  const englishText = `I’m Emilie, a creative developer 
+with a background in architecture, 
+graphic design, and mathematics.`
 
 
   const frenchTitle = `Bonjour`;
-  const frenchText = `Je suis Emilie, une creative developpeuse avec un background en architecture, design graphique et mathématiques. `
+  const frenchText = `Je suis Emilie, une creative developpeuse 
+avec un background en architecture, 
+design graphique et mathématiques. `
 
   const handleChange = () => 
   {

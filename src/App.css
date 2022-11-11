@@ -20,19 +20,16 @@ section.title {
 }
 
 section.main {
-  height: 76vh;
+  height: 81vh;
   display: flex;
   flex-direction: column;
+  align-items: center;
   justify-content: space-between;
 }
 
 @media only screen and (min-width: 768px) {
   section.title {
     height: 15vh;
-  }
-
-  section.main {
-    height: 81vh;
   }
 
 }

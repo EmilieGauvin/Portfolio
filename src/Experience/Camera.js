@@ -98,7 +98,7 @@ export default class Camera
         {
             if ((this.instance.fov != 75) && (this.fov35To75 === true))
             {
-                this.instance.fov += 1
+                this.instance.fov += 0.5 * this.time.delta /20
                 this.instance.updateProjectionMatrix()
             } 
 
@@ -119,9 +119,9 @@ export default class Camera
                 console.log(this.time.delta)
                 if (this.instance.position.z > this.CameraAimZ )
                 {
-                    this.instance.position.z -= 0.02
+                    this.instance.position.z -= 0.001 * this.time.delta
                 }
-                this.instance.position.lerp(this.cameraAimVector3, this.speed)
+                this.instance.position.lerp(this.cameraAimVector3, this.speed * this.time.delta/20)
                 if (this.instance.position.distanceTo(this.cameraAimVector3) < 0.05) this.instance.position.copy(this.cameraAimVector3)
             }
 

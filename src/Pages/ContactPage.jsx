@@ -23,16 +23,18 @@ export default function ContactPage(props) {
     setShowContent(true)
   }, [])
 
-  const englishTitle = 'Contact me';
-  const englishText = `I’m Emilie, a creative developer 
-with a background in architecture,
-graphic design, and mathematics.`
+  const englishTitle = 'Contact';
+  const englishText = `Want to tell me about your project 
+or learn more about what I do ? 
+Get in touch !
+`
 
 
-  const frenchTitle = `Me contacter`;
-  const frenchText = `Je suis Emilie, une creative developpeuse
-avec un background en architecture,
-design graphique et mathématiques. `
+  const frenchTitle = `Contact`;
+  const frenchText = `Vous souhaitez me parler de votre projet
+ou en apprendre plus sur ce que je fais ?
+Contactez-moi !
+`
 
 const handleChange = () => 
 {
@@ -43,14 +45,23 @@ const handleChange = () =>
     <div className={showContent === false ? "contact hide" : "contact show"}>
     <section className='title '>
       <h1 className="title">{english === true ? englishTitle : frenchTitle}</h1>
-      <button className="title" onClick={handleChange}>{english === true ? 'Bonjour ?' : 'Hello?'}</button>
+      <button className="title" onClick={handleChange}>{english === true ? 'en français ?' : 'in english?'}</button>
     </section>
     
     <section className='main '>
       <div className="line"></div>
       <section className='text '>
         <h4 className='text'>{english === true ? englishText : frenchText}</h4>
+        <br/>
+        <h5 className=" email textButton"><i>contact@emiliegauvin.com</i></h5>
+        <br/>
+        <div className="social">
+          {/* <h5 className="textButton"><i>instagram</i></h5> */}
+          {/* <h5 className="textButton"><i>malt</i></h5> */}
+          <a className='textButton' href="https://github.com/EmilieGauvin" target="_blank"><i>github</i></a>
+        </div>
       </section>
+      <div></div>
     </section>
   </div>
 );

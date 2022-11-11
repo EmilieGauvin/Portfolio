@@ -191,11 +191,11 @@ export default class ObjectsAnimation extends Objects
             const aimPositionY = this.getAimFromMesh(this.currentIntersect).position.y
             const aimVector3 = new THREE.Vector3(aimPositionX, aimPositionY, rotationHeight)
 
-            this.currentIntersect.quaternion.rotateTowards(this.getAimFromMesh(this.currentIntersect).quaternion, 0.1 * this.magnetSpeed)
+            this.currentIntersect.quaternion.rotateTowards(this.getAimFromMesh(this.currentIntersect).quaternion, 0.1 * this.magnetSpeed * this.time.delta /20)
             
             if (this.currentIntersect.position.distanceTo(aimVector3) > 0.001)
             {
-                this.currentIntersect.position.lerp(aimVector3, 0.1 * this.magnetSpeed)
+                this.currentIntersect.position.lerp(aimVector3, 0.1 * this.magnetSpeed * this.time.delta /20)
 
                 if (this.currentIntersect.position.distanceTo(aimVector3) < 0.01)
                 {
@@ -254,11 +254,11 @@ export default class ObjectsAnimation extends Objects
 
         if (this.currentIntersect.position.z > insertionAimZ)
         {
-            this.currentIntersect.position.z -=0.07
+            this.currentIntersect.position.z -=0.0035 * this.time.delta
 
             if (this.currentIntersect.position.z < insertionAimZ/2) 
             {
-                this.currentIntersect.material.opacity -=0.02
+                this.currentIntersect.material.opacity -= 0.001 * this.time.delta
             }
         }    
         
