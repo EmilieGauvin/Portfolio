@@ -85,7 +85,7 @@ export default class PHYSICS
         // Three.js mesh
         const mesh = new THREE.Mesh(
             new THREE.CylinderGeometry(radiusTop, radiusBottom, height, radialSegments, heightSegments, openEnded),
-            new THREE.MeshStandardMaterial({transparent:true})
+            new THREE.MeshMatcapMaterial({transparent: true})
         )
         mesh.castShadow = true
         mesh.receiveShadow = true

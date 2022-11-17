@@ -32,7 +32,7 @@ export default class Renderer
         this.backgroundColor6 = new THREE.Color('#fbe5e5')
 
         this.setInstance()
-        this.setPostProcessing()
+        // this.setPostProcessing()
     }
 
     color1()
@@ -133,8 +133,8 @@ export default class Renderer
 
     unrealBloomSetStrength(strength)
     {
-        this.unrealBloomtransition = false
-        this.unrealBloomPass.strength = strength
+        // this.unrealBloomtransition = false
+        // this.unrealBloomPass.strength = strength
     }
 
     setAntialias()
@@ -148,8 +148,8 @@ export default class Renderer
     {
         this.instance.setSize(this.sizes.width, this.sizes.height)
         this.instance.setPixelRatio(this.sizes.pixelRatio)
-        this.effectComposer.setSize(this.sizes.width, this.sizes.height)
-        this.effectComposer.setPixelRatio(Math.min(this.sizes.pixelRatio, 2))
+        if (this.effectComposer) this.effectComposer.setSize(this.sizes.width, this.sizes.height)
+        if (this.effectComposer) this.effectComposer.setPixelRatio(Math.min(this.sizes.pixelRatio, 2))
     }
 
     update()

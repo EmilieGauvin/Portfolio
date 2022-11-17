@@ -1,3 +1,10 @@
+.contact-page{
+  height: 100%;
+  width: 100vw;
+  display:flex;
+  flex-direction: column;
+}
+
 .hide{
     opacity: 0;
 }
@@ -7,7 +14,7 @@
   transition: opacity 3s
 }
 
-.contact section.text{
+.contact-page section.text{
   height: 60%;
   display: flex;
   flex-direction: column;
@@ -15,7 +22,7 @@
   align-items: center;
 }
 
-.contact h4.text
+.contact-page h4.text
 {
   text-align: center;
 }

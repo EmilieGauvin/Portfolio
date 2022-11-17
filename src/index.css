@@ -23,6 +23,8 @@ html,
 body
 {
     overflow: hidden;
+    touch-action: none;
+    height: 100%;
 }
 
 
@@ -33,7 +35,7 @@ body {
   display: flex;
   place-items: center;
   min-width: 320px;
-  min-height: 100vh;
+  /* min-height: 100vh; */
   cursor: default;
 }
 

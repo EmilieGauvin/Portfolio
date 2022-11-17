@@ -44,7 +44,7 @@ design graphique et mathématiques. `
   
 
   return (
-  <div className={showContent === false ? "home hide" : "home show"}>
+  <div className={showContent === false ? "home-page hide" : "home-page show"}>
 
             <div className='cubeContainer'
             onMouseEnter={() => setShowInstruction(true)} onMouseLeave={() => setShowInstruction(false)}

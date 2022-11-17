@@ -56,7 +56,7 @@ export default function App() {
       }
 
     return (
-        <div className={loaded === false ? 'app. background notLoaded' : 'app. background loaded'}>
+        <div className={loaded === false ? 'background notLoaded' : 'background loaded'}>
             <div className={endAnimation === false ? 'cubeContainer notLoaded' : 'cubeContainer loaded'}>
                 <div className="cubeMover">
                     <div className="cursor">

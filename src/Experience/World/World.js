@@ -27,7 +27,7 @@ export default class World
             this.objectsAnimation = new ObjectsAnimation()    
             this.attic = new Attic()
             this.livingRoom = new LivingRoom()
-            this.environment= new Environment()
+            // this.environment= new Environment()
             this.aimCaps = new AimCaps()
 
         })
@@ -167,6 +167,7 @@ export default class World
         if (this.livingRoom) this.livingRoom.resize()
         if (this.textPosition) this.textPosition.resize()
         if (this.aimCaps) this.aimCaps.resize() 
+        if (this.environment) this.environment.resize()
     }
 
     update()

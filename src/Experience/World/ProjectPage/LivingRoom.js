@@ -3,9 +3,8 @@ import Experience from "../../Experience";
 import drapesVertexShader from './shaders/drapes/vertex.glsl'
 import drapesFragmentShader from './shaders/drapes/fragment.glsl'
 import fakeGodRayVertexShader from './shaders/fakeGodRay/vertex.glsl'
-import fakeGodRayFragmentShader1 from './shaders/fakeGodRay/fragment1.glsl'
-import fakeGodRayFragmentShader2 from './shaders/fakeGodRay/fragment2.glsl'
-import fakeGodRayFragmentShader3 from './shaders/fakeGodRay/fragment3.glsl'
+import fakeGodRayFragmentShader from './shaders/fakeGodRay/fragment.glsl'
+
 
 
 export default class LivingRoom
@@ -30,31 +29,40 @@ export default class LivingRoom
         this.resources = this.experience.resources
         this.resource = this.resources.items.livingRoomModel
         this.livingRoomTexture = this.resources.items.livingRoomTexture
+        this.backgroundTexture = this.resources.items.backgroundTexture
         // this.livingRoomTexture.encoding = THREE.sRGBEncoding
 
         // Base
-        this.scaleRatio = this.experience.scaleRatio
         this.baseScale = 0.595
+        this.scaleRatio = this.experience.scaleRatio
 
+        this.setBackground()
         this.setModel()
+        this.resize()
+    }
+
+    setBackground()
+    {
+        const backgroundGeometry = new THREE.PlaneGeometry(1, 1)
+        const backgroundMaterial = new THREE.MeshBasicMaterial({map: this.backgroundTexture})
+        this.background = new THREE.Mesh(backgroundGeometry, backgroundMaterial)
+        this.scene.add(this.background)
     }
 
     setModel()
     {
         //Import model
         this.model = this.resource.scene
-        this.model.position.set(
-            this.squarePosition.x* this.scaleRatio, 
-            this.squarePosition.y* this.scaleRatio, 
-            0)
-        this.model.scale.set(this.baseScale * this.scaleRatio, this.baseScale * this.scaleRatio, this.baseScale * this.scaleRatio)
+
         this.scene.add(this.model)
         
         // Baked texture
         this.livingRoomTexture.flipY = false
         this.bakedMesh = this.model.children.find((child) => child.name === 'baked_livingRoom')
-        this.livingRoomMaterial = new THREE.MeshBasicMaterial({ map: this.livingRoomTexture  })
-        this.bakedMesh.material = this.livingRoomMaterial
+        this.bakedMesh.material = new THREE.MeshBasicMaterial()
+        this.bakedMesh.material.map = this.livingRoomTexture
+        // this.bakedMesh.material.metalness=0
+        // this.bakedMesh.material.roughness =1
 
         // lightMaterials
         this.lightMaterial = new THREE.MeshBasicMaterial({ color: 0xffffe5 })
@@ -64,9 +72,9 @@ export default class LivingRoom
         
         //Glass Materials
         this.glassMaterial = new THREE.MeshBasicMaterial({ 
-            color: 'black',
+            color: '#AEDEFF',
             transparent: true,
-            opacity: 0.0
+            opacity: 0.2
         })
         this.glassMesh = this.model.children.find((child) => child.name === 'glass')
         this.glassMesh.material = this.glassMaterial
@@ -75,13 +83,15 @@ export default class LivingRoom
         this.drapeMaterial = new THREE.ShaderMaterial({
             vertexShader: drapesVertexShader,
             fragmentShader: drapesFragmentShader,
+            // blending: THREE.AdditiveBlending,
+
             uniforms:
             {
                 uTime: { value: 0 },
                 uBigWavesElevation: { value: new THREE.Vector2(0.10, 0.2) },
                 uBigWavesFrequency: { value: new THREE.Vector2(100, 1.5) },
                 uBigWavesSpeed: { value: 0.003 },
-                uScaleRatio : { value: this.scaleRatio },
+                uScaleRatio: { value : this.scaleRatio}
             },
             transparent: true
         })
@@ -112,13 +122,15 @@ export default class LivingRoom
             side: THREE.FrontSide,
             blending: THREE.AdditiveBlending,
             transparent: true,
-            depthWrite: false,
+            // depthWrite: false,
             vertexShader: fakeGodRayVertexShader,
-            fragmentShader: fakeGodRayFragmentShader1,
+            fragmentShader: fakeGodRayFragmentShader,
             uniforms:
             {
-                uGlowColor: { value: new THREE.Color(0xffccaa) },
-                uScaleRatio : { value: this.scaleRatio },
+                uGlowColor: { value: new THREE.Color(0xfffcf5) },
+                uBlurOffset: { value: 0.8},
+                uAlphaBase: { value: 0.25},
+                uAlphaRays: { value: 0.10}
             }
         })
 
@@ -130,13 +142,15 @@ export default class LivingRoom
             side: THREE.FrontSide,
             blending: THREE.AdditiveBlending,
             transparent: true,
-            depthWrite: false,
+            // depthWrite: false,
             vertexShader: fakeGodRayVertexShader,
-            fragmentShader: fakeGodRayFragmentShader2,
+            fragmentShader: fakeGodRayFragmentShader,
             uniforms:
             {
-                uGlowColor: { value: new THREE.Color(0xffccaa) },
-                uScaleRatio : { value: this.scaleRatio },
+                uGlowColor: { value: new THREE.Color(0xfffcf5) },
+                uBlurOffset: { value: 1.1},
+                uAlphaBase: { value: 0.15},
+                uAlphaRays: { value: 0.10}
             }
         })
 
@@ -148,13 +162,15 @@ export default class LivingRoom
             side: THREE.FrontSide,
             blending: THREE.AdditiveBlending,
             transparent: true,
-            depthWrite: false,
+            // depthWrite: false,
             vertexShader: fakeGodRayVertexShader,
-            fragmentShader: fakeGodRayFragmentShader3,
+            fragmentShader: fakeGodRayFragmentShader,
             uniforms:
             {
-                uGlowColor: { value: new THREE.Color(0xffccaa) },
-                uScaleRatio : { value: this.scaleRatio },
+                uGlowColor: { value: new THREE.Color(0xFFF1A9) },
+                uBlurOffset: { value: 0.7},
+                uAlphaBase: { value: 0.2},
+                uAlphaRays: { value: 0.1}
             }
         })
 
@@ -172,7 +188,7 @@ export default class LivingRoom
         this.fakeGodRayMesh3.material.visible = false
         this.lightsMesh.material.visible = false
     }
-
+    
     showMaterials()
     {
         this.bakedMesh.material.visible = true
@@ -192,6 +208,12 @@ export default class LivingRoom
             this.squarePosition.y* this.scaleRatio, 
             0)
         this.model.scale.set(this.baseScale * this.scaleRatio, this.baseScale * this.scaleRatio, this.baseScale * this.scaleRatio)
+
+        this.background.scale.set(30 * this.scaleRatio, 30 * this.scaleRatio, 1)
+        this.background.position.x = this.squarePosition.x* this.scaleRatio
+        this.background.position.y = this.squarePosition.y* this.scaleRatio
+        this.background.position.z = - 10 * this.scaleRatio
+
         this.drapeMaterial.uniforms.uScaleRatio.value = this.scaleRatio
     }
 

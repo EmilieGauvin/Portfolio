@@ -141,7 +141,7 @@ export default class ObjectsAnimation extends Objects
                 this.currentIntersectPlane.position.z = this.currentIntersect.position.z
                 
                 this.ObjectMovingPhysicsOff(this.currentIntersect)
-                this.currentIntersect.position.z += 2
+                // this.currentIntersect.position.z += 2
             }
             else
             {
@@ -162,7 +162,7 @@ export default class ObjectsAnimation extends Objects
             this.raycasterPlane.setFromCamera(this.pointer, this.camera)
             this.intersection = this.raycasterPlane.intersectObject(this.currentIntersectPlane)
             this.currentIntersect.position.copy(this.intersection[0].point)
-            this.currentIntersect.position.z += 2
+            // this.currentIntersect.position.z += 2
             }
         }
     }

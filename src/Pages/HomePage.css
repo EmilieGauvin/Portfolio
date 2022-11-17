@@ -1,4 +1,7 @@
-
+.home-page{
+  width: 100vw;
+  height: 100%;
+}
 
 .hide {
   opacity: 0;
@@ -9,41 +12,41 @@
   transition: opacity 3s
 }
 
-.home section.text {
+.home-page section.text {
   height: 100%;
   display: flex;
   justify-content: center;
   align-items: flex-start;
 }
 
-.home h4.text {
+.home-page h4.text {
   text-align: center;
 }
 
 
-.home .cubeContainer {
+.home-page .cubeContainer {
   transform-origin: top left;
   transform: scale(0.5);
 }
 
 @media only screen and (min-width: 768px) {
-  .home .cubeContainer {
+  .home-page .cubeContainer {
     transform: scale(0.8);
     opacity: 0.9
   }
 }
 
-.home .face {
+.home-page .face {
   border-color: rgb(43, 5, 5);
   border-width: 2px
 }
 
-.home .cube {
+.home-page .cube {
   top: 5vh;
   left: 5vh;
 }
 
-.home .cubeMover {
+.home-page .cubeMover {
   animation: upDown 2s alternate infinite ease-in-out;
 }
 
@@ -53,12 +56,12 @@
   }
 }
 
-.home .hole {
+.home-page .hole {
   top: 8vh;
   left: 5vh;
 }
 
-.home .cursor {
+.home-page .cursor {
   top: 1.5vh;
   left: 5vh;
   color: rgb(43, 5, 5)

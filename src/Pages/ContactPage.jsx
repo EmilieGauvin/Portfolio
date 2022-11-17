@@ -42,7 +42,7 @@ const handleChange = () =>
 }
 
   return (
-    <div className={showContent === false ? "contact hide" : "contact show"}>
+    <div className={showContent === false ? "contact-page hide" : "contact-page show"}>
     <section className='title '>
       <h1 className="title">{english === true ? englishTitle : frenchTitle}</h1>
       <button className="title" onClick={handleChange}>{english === true ? 'en français ?' : 'in english?'}</button>

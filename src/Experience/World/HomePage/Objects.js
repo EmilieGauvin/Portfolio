@@ -36,6 +36,9 @@ export default class Objects
         // this.sectionTexture = this.resources.items.sectionTexture
         // this.sectionTexture3 = this.resources.items.sectionTexture3
         this.sectionTexture6 = this.resources.items.sectionTexture6
+        this.matcapCircle = this.resources.items.matcapCircle
+        this.matcapSquare = this.resources.items.matcapSquare
+        this.matcapTriangle = this.resources.items.matcapTriangle
         this.test = this.resources.items.test
 
 
@@ -107,13 +110,13 @@ export default class Objects
     //     this.triangleMoving.material.color = this.triangleColor5
     // }
 
-    color6()
-    {
-        this.circleMoving.material.color = this.circleColor6
-        this.squareMoving.material.color = this.squareColor6
-        this.triangleMoving.material.color = this.triangleColor6
-        this.backSection.material.map = this.sectionTexture6
-    }
+    // color6()
+    // {
+    //     this.circleMoving.material.color = this.circleColor6
+    //     this.squareMoving.material.color = this.squareColor6
+    //     this.triangleMoving.material.color = this.triangleColor6
+    //     this.backSection.material.map = this.sectionTexture6
+    // }
 
     circles()
     {
@@ -140,7 +143,9 @@ export default class Objects
         this.physics.cylinderGenerator('circleMovingMesh', 'circleMovingBody', this.circlePosition.radius, this.circlePosition.radius, 2, 32, 1, false, {x:0, y:0, z:20}, 1, this.scaleRatio)
         this.circleMoving = this.scene.children.find((child) => child.name === 'circleMovingMesh')
         this.circleMoving.scale.set(this.scaleRatio, this.scaleRatio, this.scaleRatio)
-        this.circleMoving.material.color = this.circleColor6
+        // this.circleMoving.material.color = this.circleColor6
+        this.circleMoving.material.matcap = this.matcapCircle
+
         this.circleMovingBody = this.physicalWorld.bodies.find((body) => body.name === 'circleMovingBody')
 
         ///Debug
@@ -176,7 +181,10 @@ export default class Objects
         this.physics.cylinderGenerator('squareMovingMesh', 'squareMovingBody', this.squarePosition.radius, this.squarePosition.radius, 2, 4, 1, false, {x:0, y:0, z:20}, 1, this.scaleRatio)
         this.squareMoving = this.scene.children.find((child) => child.name === 'squareMovingMesh')
         this.squareMoving.scale.set(this.scaleRatio, this.scaleRatio, this.scaleRatio)
-        this.squareMoving.material.color = this.squareColor6
+        // this.squareMoving.material.color = this.squareColor6
+
+        this.squareMoving.material.matcap = this.matcapSquare
+
         this.squareMovingBody = this.physicalWorld.bodies.find((body) => body.name === 'squareMovingBody')
 
         ///Debug
@@ -211,7 +219,9 @@ export default class Objects
         this.physics.cylinderGenerator('triangleMovingMesh', 'triangleMovingBody', this.trianglePosition.radius, this.trianglePosition.radius, 2, 3, 1, false, {x:0, y:0, z:20}, 1, this.scaleRatio)
         this.triangleMoving = this.scene.children.find((child) => child.name === 'triangleMovingMesh')
         this.triangleMoving.scale.set(this.scaleRatio, this.scaleRatio, this.scaleRatio)
-        this.triangleMoving.material.color = this.triangleColor6
+        // this.triangleMoving.material.color = this.triangleColor6
+        this.triangleMoving.material.matcap = this.matcapTriangle
+
         this.triangleMovingBody = this.physicalWorld.bodies.find((body) => body.name === 'triangleMovingBody')
 
         ///Debug
@@ -226,12 +236,11 @@ export default class Objects
         const backSectionGenerator = this.physics.planeGenerator(this.baseWidth * 2, this.baseWidth)
         this.backSection = backSectionGenerator[0]
         this.backSectionBody = backSectionGenerator[1]
-        this.sectionTexture6.repeat.set(1, 1)
+        this.test.repeat.set(1, 1)
         this.backSection.scale.set(this.scaleRatio, this.scaleRatio, this.scaleRatio)
         // this.backSection.material.map = this.sectionTexture6
         this.backSection.material.transparent = true
         this.backSection.material.map = this.test
-
     }
 
     limitPlanes()
