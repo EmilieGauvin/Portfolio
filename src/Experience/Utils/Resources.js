@@ -79,7 +79,7 @@ export default class Resources extends EventEmitter
         this.loaded++
 
             const progressRatio = this.loaded / this.toLoad
-            document.querySelector(".cubeMover").style.transform = `translateY(calc(${progressRatio} * 50vh) `
+            document.querySelector(".cubeMover").style.transform = `translateY(calc(${progressRatio} * 36.5vh) `
 
 
         

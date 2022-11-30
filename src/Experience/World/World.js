@@ -5,6 +5,7 @@ import ObjectsAnimation from './HomePage/ObjectsAnimation'
 import Attic from './AboutPage/Attic'
 import Environment from './Environment'
 import LivingRoom from "./ProjectPage/LivingRoom";
+import Background from './Background';
 import AimCaps from './HomePage/AimCaps';
 import Sun from './ContactPage/Sun';
 
@@ -27,6 +28,7 @@ export default class World
             this.objectsAnimation = new ObjectsAnimation()    
             this.attic = new Attic()
             this.livingRoom = new LivingRoom()
+            this.background = new Background()
             // this.environment= new Environment()
             this.aimCaps = new AimCaps()
 
@@ -83,11 +85,12 @@ export default class World
         this.renderer.unrealBloomTransitionStrength(0.3)
         // this.renderer.unrealBloomSetStrength(0.3)
 
-        this.resources.on('ready', () =>
-        {
+        // this.resources.on('ready', () =>
+        // {
+        //     console.log("test")
             if (this.livingRoom) this.livingRoom.hideMaterials()
             if (this.attic) this.attic.showMaterials()
-        })
+        // })
         
     }
 
@@ -102,6 +105,8 @@ export default class World
     transitionProjectPage()
     {
         if (this.objectsAnimation.currentIntersect === null) this.transitionChangeCurrentIntersect(this.objectsAnimation.squareMoving)
+
+                this.objectsAnimation.homePagePhysicsOn = false
 
         if (this.aimCaps) this.aimCaps.squareAimCapHide()
 
@@ -118,7 +123,6 @@ export default class World
         // this.resources.on('ready', () =>
         // {
             if (this.attic) this.attic.hideMaterials()
-            if (this.livingRoom) this.livingRoom.showMaterials()
         // })
 
     }
@@ -136,6 +140,8 @@ export default class World
     {
         if (this.objectsAnimation.currentIntersect === null) this.transitionChangeCurrentIntersect(this.objectsAnimation.circleMoving)
         if (this.aimCaps) this.aimCaps.circleAimCapHide()
+
+        this.objectsAnimation.homePagePhysicsOn = false
 
         if (this.attic) this.attic.hideMaterials()
         if (this.livingRoom) this.livingRoom.hideMaterials()
@@ -165,9 +171,11 @@ export default class World
         if (this.objectsAnimation) this.objectsAnimation.resize()
         if (this.attic) this.attic.resize()
         if (this.livingRoom) this.livingRoom.resize()
+        if (this.background) this.background.resize()
         if (this.textPosition) this.textPosition.resize()
         if (this.aimCaps) this.aimCaps.resize() 
-        if (this.environment) this.environment.resize()
+        if (this.sun) this.sun.resize()
+        // if (this.environment) this.environment.resize()
     }
 
     update()

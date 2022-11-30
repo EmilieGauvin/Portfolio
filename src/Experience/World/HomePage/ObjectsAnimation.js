@@ -22,11 +22,10 @@ export default class ObjectsAnimation extends Objects
         // Build currentIntersectPlane
         this.currentIntersectPlane = new THREE.Mesh(
             new THREE.PlaneGeometry(50, 50),
-            new THREE.MeshBasicMaterial({transparent:true, opacity:0})
+            new THREE.MeshBasicMaterial({transparent:true, opacity:0, depthWrite: false})
         )
         this.currentIntersectPlane.name = "currentIntersectPlane"
         this.scene.add(this.currentIntersectPlane)
-        this.currentIntersectPlane.visible = true
 
         this.resetToHomePage()
 
@@ -56,12 +55,12 @@ export default class ObjectsAnimation extends Objects
 
     resetObjects()
     {
-        this.circleMoving.position.set(0, 0, 30)
-        this.circleMovingBody.position.set(0, 0, 30) 
-        this.triangleMoving.position.set(0, 0, 30) 
-        this.triangleMovingBody.position.set(0, 0, 30)
-        this.squareMoving.position.set(0, 0, 30)
-        this.squareMovingBody.position.set(0, 0, 30)
+        this.circleMoving.position.set(0, 2, 38)
+        this.circleMovingBody.position.set(0, 0, 12) 
+        this.triangleMoving.position.set(0, 0, 42) 
+        this.triangleMovingBody.position.set(0, 0, 12)
+        this.squareMoving.position.set(0, -2, 40)
+        this.squareMovingBody.position.set(0, 0, 12)
         this.circleMoving.material.opacity = 1
         this.triangleMoving.material.opacity = 1
         this.squareMoving.material.opacity = 1
@@ -134,14 +133,13 @@ export default class ObjectsAnimation extends Objects
             if(this.intersects.length)
             {            
                 document.querySelector("body").classList.add("grabbing")
-                console.log('grabbing')
 
                 if(!this.currentIntersect)
                 this.currentIntersect = this.intersects[0].object
-                this.currentIntersectPlane.position.z = this.currentIntersect.position.z
+                this.currentIntersectPlane.position.z = this.currentIntersect.position.z + 1.5 * this.scaleRatio
                 
                 this.ObjectMovingPhysicsOff(this.currentIntersect)
-                // this.currentIntersect.position.z += 2
+                this.currentIntersect.position.z += 1.5 * this.scaleRatio
             }
             else
             {
@@ -162,7 +160,7 @@ export default class ObjectsAnimation extends Objects
             this.raycasterPlane.setFromCamera(this.pointer, this.camera)
             this.intersection = this.raycasterPlane.intersectObject(this.currentIntersectPlane)
             this.currentIntersect.position.copy(this.intersection[0].point)
-            // this.currentIntersect.position.z += 2
+            // this.currentIntersect.position.z += 5
             }
         }
     }
@@ -171,8 +169,8 @@ export default class ObjectsAnimation extends Objects
     {
         if (this.dragControlsActive === true) 
         { 
+            this.currentIntersectPlane.position.z = -1
             document.querySelector("body").classList.remove("grabbing")
-            console.log('dropping')
             this.currentIntersect = null
             this.ObjectMovingPhysicsOn(this.circleMoving)
             this.ObjectMovingPhysicsOn(this.squareMoving)
@@ -254,7 +252,7 @@ export default class ObjectsAnimation extends Objects
 
         if (this.currentIntersect.position.z > insertionAimZ)
         {
-            this.currentIntersect.position.z -=0.0035 * this.time.delta
+            this.currentIntersect.position.z -=0.004 * this.time.delta
 
             if (this.currentIntersect.position.z < insertionAimZ/2) 
             {

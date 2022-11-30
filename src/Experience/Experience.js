@@ -26,7 +26,7 @@ export default class Experience {
         window.experience = this
 
         //Stats, run 'npm install --save stats.js'
-        this.statsActive = true //window.location.hash === '#stats'
+        this.statsActive = false //window.location.hash === '#stats'
         if (this.statsActive) {
             this.stats = new Stats()
             this.stats.showPanel(0) // 0: fps, 1: ms, 2: mb, 3+: custom
@@ -114,7 +114,7 @@ export default class Experience {
         this.navigation.on('resetToHomePage', () => {
             this.world.resetToHomePage()
             //Update Camera
-            this.camera.goTo(0, 0, 20, 'homePage', false, 0.2)
+            this.camera.goTo(0, 0, 20, 'homePage', false, 0.05)
             //Blur background
             document.querySelector(".webgl").classList.remove("blurred")
         })
@@ -130,7 +130,7 @@ export default class Experience {
 
         this.navigation.on('resetBeforeAboutPage', () => {
             //Update Camera
-            this.camera.goTo(this.trianglePosition.x, this.trianglePosition.y, 13, 'transitionAboutPage', false, 0.2)
+            this.camera.goTo(this.trianglePosition.x, this.trianglePosition.y, 13, 'transitionAboutPage', false, 0.1)
             //Position triangleMoving
             this.world.resetBeforeAboutPage()
             //Blur background
@@ -155,7 +155,7 @@ export default class Experience {
 
         this.navigation.on('resetBeforeProjectPage', () => {
             //Update Camera
-            this.camera.goTo(this.squarePosition.x, this.squarePosition.y, 13, 'transitionProjectPage', false, 0.2)
+            this.camera.goTo(this.squarePosition.x, this.squarePosition.y, 13, 'transitionProjectPage', false, 0.1)
             //Position squareMoving
             this.world.resetBeforeProjectPage()
             //Blur background
@@ -180,7 +180,7 @@ export default class Experience {
         })
 
         this.navigation.on('resetBeforeContactPage', () => {
-            this.camera.goTo(this.circlePosition.x, this.circlePosition.y, 13, 'transitionContactPage', false, 0.2)
+            this.camera.goTo(this.circlePosition.x, this.circlePosition.y, 13, 'transitionContactPage', false, 0.1)
             //Position CircleMoving
             this.world.resetBeforeContactPage()
             //Blur background
@@ -200,7 +200,7 @@ export default class Experience {
             //Launch ProjectPage
             this.world.contactPage()
             //Blur background
-            document.querySelector(".webgl").classList.add("blurred")
+            // document.querySelector(".webgl").classList.add("blurred")
         })
     }
 
@@ -212,9 +212,18 @@ export default class Experience {
         if (this.world.aimCaps) this.world.aimCaps.englishFalse()
     }
 
+    parallaxEnabled()
+    {
+        this.camera.parallaxEnabled = true
+    }
+
+    parallaxDisabled()
+    {
+        this.camera.parallaxEnabled = false
+    }
+
     resize() {
         this.scaleRatioCamera.resize()
-        this.camera.resize()
         //Update scaleRatio
         if (this.sizes.width >= this.sizes.height * 1.5) {
             this.scaleRatio = (visibleWidthAtZDepth(0.2, this.scaleRatioCamera.instance ) /( this.baseWidth * 1.5)) * 1.05
@@ -223,6 +232,7 @@ export default class Experience {
             this.scaleRatio = (visibleHeightAtZDepth(0.2, this.scaleRatioCamera.instance) / this.baseWidth) * 1.05
             this.windowHorizontal = false
         }
+        this.camera.resize()
 
         this.renderer.resize()
         if (this.world) this.world.resize()

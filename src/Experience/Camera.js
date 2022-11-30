@@ -65,6 +65,7 @@ export default class Camera
         this.speed = speed
         this.parallaxAmplitude = 0
         this.parallaxEnabled = false
+        this.instance.rotation.y = 0
     }
 
     atPage(CameraAimX, CameraAimY, CameraAimZ)
@@ -74,17 +75,25 @@ export default class Camera
         this.CameraAimY = CameraAimY
         this.CameraAimZ = CameraAimZ
         this.instance.position.set(CameraAimX * this.scaleRatio, CameraAimY * this.scaleRatio, CameraAimZ)
+
+        // if (this.sizes.width < this.sizes.height) this.instance.fov = 100
+        // else 
         this.instance.fov = 75
         this.instance.updateProjectionMatrix()
-        if ( !/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) )
+
+        // if ( !/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) )
         this.parallaxEnabled = true
+        this.instance.rotation.y = 0
     }
 
     resize()
     {
         this.instance.aspect = this.sizes.width / this.sizes.height
-        this.instance.updateProjectionMatrix()
         this.scaleRatio = this.experience.scaleRatio
+        
+        // if (this.sizes.width > this.sizes.height && this.instance.fov === 100) this.instance.fov = 75
+        // if (this.sizes.width < this.sizes.height && this.instance.fov === 75) this.instance.fov = 100
+        this.instance.updateProjectionMatrix()
     }
 
     update()
@@ -93,15 +102,26 @@ export default class Camera
 
         if (this.controls)
         this.controls.update()
-
+        
         if (this.transition === true)
         {
-            if ((this.instance.fov != 75) && (this.fov35To75 === true))
-            {
-                this.instance.fov += 0.5 * this.time.delta /20
-                this.instance.updateProjectionMatrix()
-            } 
+            // if (this.sizes.width < this.sizes.height) {
+            //     if ((this.instance.fov < 100 ) && (this.fov35To75 === true))
+            //     {
+            //         this.instance.fov += 0.5 * this.time.delta /10
+            //         this.instance.updateProjectionMatrix()
+            //     } 
+            // }
 
+            // else 
+            // {
+                if ((this.instance.fov < 75 ) && (this.fov35To75 === true))
+                {
+                    this.instance.fov += 0.5 * this.time.delta /20
+                    this.instance.updateProjectionMatrix()
+                } 
+            // }
+        
             if (this.fov35To75 === false)
             {
                 this.instance.position.z = this.instance.position.z >= 20 ? 20 : this.instance.position.z
@@ -112,11 +132,12 @@ export default class Camera
                     this.instance.updateProjectionMatrix()
                 }
             } 
+            
+
 
             this.cameraAimVector3 = new THREE.Vector3(this.CameraAimX * this.scaleRatio, this.CameraAimY * this.scaleRatio, this.CameraAimZ ) 
             if (this.instance.position.distanceTo(this.cameraAimVector3) > 0.001)
             {
-                console.log(this.time.delta)
                 if (this.instance.position.z > this.CameraAimZ )
                 {
                     this.instance.position.z -= 0.001 * this.time.delta
@@ -135,7 +156,6 @@ export default class Camera
             //     )
             {
                 this.transition = false
-                if ( !/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) )
                 this.parallaxEnabled = true 
 
                 if (this.pageAim === 'transitionAboutPage') 
@@ -178,11 +198,16 @@ export default class Camera
 
         if (this.parallaxEnabled === true)
         {   
-            this.parallaxAmplitude = this.parallaxAmplitude < 0.25 ? this.parallaxAmplitude + 0.001 : 0.25
+            this.parallaxAmplitude = this.parallaxAmplitude < 0.3 ? this.parallaxAmplitude + 0.001 : 0.3
             const parallaxX = this.pointer.x * this.parallaxAmplitude // to lower the amplitude of effect
             const parallaxY = this.pointer.y * this.parallaxAmplitude // to lower the amplitude of effect   
-            this.instance.position.x = (parallaxX + this.CameraAimX) * this.scaleRatio
+            // this.instance.position.x = ((parallaxX + this.CameraAimX) * this.scaleRatio) / (this.sizes.width/this.sizes.height)
             this.instance.position.y = (parallaxY + this.CameraAimY) * this.scaleRatio
+            this.instance.position.x = this.CameraAimX * this.scaleRatio +parallaxX / this.instance.aspect
+
+            this.instance.rotation.y = parallaxX / this.instance.aspect
+
+
         }
     }
 }

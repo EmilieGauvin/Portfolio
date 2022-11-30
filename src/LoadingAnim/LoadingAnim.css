@@ -1,0 +1,80 @@
+
+.cubeContainer {
+  position: absolute;
+  left:0;
+  top:0;
+  width: 200px;
+  height: 200px;
+  perspective: 1000px;
+  margin: 100px auto 0;
+}
+
+.face {
+  position: absolute;
+  width: 4.7vh;
+  height: 4.7vh;
+  border: solid;
+  border-color: var(--light-color);
+  border-width: 2px;
+}
+
+.top {
+
+  transform: rotateX(90deg) translateZ(2.5vh);
+}
+
+.right {
+
+  transform: rotateY(90deg) translateZ(2.5vh) ;
+}
+
+.left {
+
+  transform: rotateX(-180deg) translateZ(2.5vh);
+}
+
+.bottom {
+  transform: rotateX(-90deg) translateZ(2.5vh);
+}
+
+
+.cube .face{
+  background-color: var(--background);
+}
+
+.cube {
+  position:absolute;
+  top:20vh;
+  left:49.5vw;
+  width: 0;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transform: rotateX(45deg) rotateY(45deg);
+}
+
+.hole {
+  position:absolute;
+  top:50vh;
+  left:49.5vw;
+  width: 0;
+  height: 100%;
+  transform-style: preserve-3d;
+  transform: rotateX(45deg) rotateY(45deg);
+}
+
+.hole .face.front{
+  border-left-color: transparent;
+  border-top-color: transparent;
+}
+
+.cursor {
+  position:absolute;
+  top:19.5vh;
+  left:49.7vw;
+  height: 3vh;
+}
+
+.cursor img{
+  height:100%;
+}

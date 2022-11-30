@@ -29,7 +29,7 @@ export default class Renderer
         this.backgroundColor3 = new THREE.Color('#fcd6ff')
         this.backgroundColor4 = new THREE.Color('#ffa3a8')
         this.backgroundColor5 = new THREE.Color('#f2eade')
-        this.backgroundColor6 = new THREE.Color('#fbe5e5')
+        this.backgroundColor6 = new THREE.Color('#4742b1')
 
         this.setInstance()
         // this.setPostProcessing()

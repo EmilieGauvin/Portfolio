@@ -27,6 +27,7 @@ export default function Menu(props) {
                 setOnAboutPage(false)
                 setOnProjectPage(false)
                 setOnContactPage(false)
+            setLightText(true)
             navigation.homePage()
             navigate('/')
         }
@@ -70,7 +71,7 @@ export default function Menu(props) {
         {
             if (onHomePage === false) 
             {
-                setLightText(false)
+                setLightText(true)
                 setOnHomePage(true)
                     setOnAboutPage(false)
                     setOnProjectPage(false)
@@ -131,7 +132,7 @@ export default function Menu(props) {
         if ((window.location.pathname === '/about') || (window.location.pathname === '/projects')|| (window.location.pathname === '/contact')) 
         navigation.resetToHomePage()
         setDeployMenu(false)
-        setLightText(false)
+        setLightText(true)
     }
 
     const handleAboutClick = () => 
@@ -189,7 +190,7 @@ export default function Menu(props) {
                     </div>
             </NavLink>
             <NavLink  className='navButton' onClick={deployMenu === false ? handleDeployMenu : handleProjectClick}>
-                <div className="navText" >Projects </div>
+                <div className="navText" >{english === true ? 'Projects' : 'Projets'} </div>
                 <div className='navIcon project'>
                     <img src="../../static/menu/menu-03.png"/>
                     </div>

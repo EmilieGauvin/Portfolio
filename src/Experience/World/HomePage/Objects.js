@@ -233,7 +233,7 @@ export default class Objects
 
     planes()
     {
-        const backSectionGenerator = this.physics.planeGenerator(this.baseWidth * 2, this.baseWidth)
+        const backSectionGenerator = this.physics.planeGenerator(this.baseWidth * 2, this.baseWidth * 2)
         this.backSection = backSectionGenerator[0]
         this.backSectionBody = backSectionGenerator[1]
         this.test.repeat.set(1, 1)

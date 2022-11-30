@@ -1,11 +1,15 @@
 :root {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Noto Sans', sans-serif;
+
   /* font-size: 16px;
   line-height: 24px; */
-  font-weight: 400;
+  font-weight: 100;
 
   color-scheme: light dark;
-  color: rgb(43, 5, 5);
+  --dark-color: rgb(35, 0, 105);
+  --light-color: rgba(255, 255, 255, 0.945);
+  --background: #4742b1;
+  color: var(--light-color);
   /* background-color: #242424; */
 
   font-synthesis: none;
@@ -18,6 +22,8 @@
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
+  -webkit-tap-highlight-color:  rgba(255, 255, 255, 0); 
+
 }
 html,
 body
@@ -48,19 +54,23 @@ body.grab.grabbing {
 }
 
 h1{
-  font-weight: 700;
-  font-size: calc(24px + 3vw);
+  font-weight: 600;
+  font-size: calc(30px + 3.5vw);
+  line-height: calc(35px + 3.5vw);
   margin:0;
   padding:0;
+  font-family: 'Quicksand', sans-serif;
 }
 
 h4 {
-  font-weight: 400;
+  font-weight: 200;
   font-size: calc(14px + 1.1vw);
-  /* line-height: calc(11px + 1.1vw); */
+  line-height: min(calc(20px + 1.4vw),calc(5px + 4vh));
   white-space: break-spaces;
     margin:0;
   padding:0;
+
+
 }
 
 h5 {
@@ -72,11 +82,17 @@ h5 {
 }
 
 p {
-  font-weight: 400;
+  font-weight: 300;
   font-size: calc(10px + 0.7vw);
   line-height: calc(11px + 1.1vw);
   margin:0;
   padding:0;
+}
+
+a {
+  font-weight: 400;
+  font-size: calc(10px + 0.7vw);
+
 }
 
 .navButton .navText{
@@ -87,17 +103,21 @@ p {
 }
 
 .dark .navButton .navText{
-  color: rgb(43, 5, 5);
+  color: var(--dark-color);
   transition: color 1s
 }
 
 .light .navButton .navText{
-  color: #e9d6cd;
+  color: var(--light-color);
   transition: color 1s
 }
 
 .navButton{
   text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
 }
 
 .textButton{
@@ -105,12 +125,15 @@ p {
   cursor: pointer !important;
   color: inherit !important;
   text-decoration: none !important;
+  border-bottom: 1px solid rgba(255, 0, 0, 0);
+  transition: border 0.3s;
 }
 
 .textButton:hover{
-  text-decoration: underline !important;
+  border-bottom: 1px solid ;
+  border-color: inherit;
+  transition: border 0.5s;
 }
-
 
 .textButton.active {
   color:rgb(110, 42, 165)!important;
@@ -119,26 +142,30 @@ p {
 button{
   background: transparent;
   font-family: inherit;
-  font-size: inherit;
-  font-weight: 700;
+  font-size: calc(10px + 0.7vw);
+  font-weight: 300;
   font-style: italic;
   color: inherit;
   text-align: center;
   border:none;
   cursor: pointer;
   white-space: nowrap;
-  /* padding: 0; */
+  padding: 0;
+  border-bottom: 1px solid rgba(255, 0, 0, 0);
+  transition: border 0.3s;
 }
 
-button:focus,
+/* button:focus,
 button:focus-visible,
 button:hover,
 button:active {
-  border:none; } 
+  border:none; }  */
 
 button:hover
 {
-  text-decoration: underline;
+  border-bottom: 1px solid;
+  border-color: inherit;
+  transition: border 0.5s;
 }
 
 .webgl {
@@ -152,8 +179,8 @@ button:hover
 }
 
 .webgl.blurred {
-  filter: blur(0.5rem);
-  transition: filter 3s;
+  filter: blur(0.6rem) ;
+  transition: filter 5s;
 }
 
 /* @media only screen and (min-width: 768px) {

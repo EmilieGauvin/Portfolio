@@ -29,24 +29,13 @@ export default class LivingRoom
         this.resources = this.experience.resources
         this.resource = this.resources.items.livingRoomModel
         this.livingRoomTexture = this.resources.items.livingRoomTexture
-        this.backgroundTexture = this.resources.items.backgroundTexture
-        // this.livingRoomTexture.encoding = THREE.sRGBEncoding
 
         // Base
         this.baseScale = 0.595
         this.scaleRatio = this.experience.scaleRatio
 
-        this.setBackground()
         this.setModel()
         this.resize()
-    }
-
-    setBackground()
-    {
-        const backgroundGeometry = new THREE.PlaneGeometry(1, 1)
-        const backgroundMaterial = new THREE.MeshBasicMaterial({map: this.backgroundTexture})
-        this.background = new THREE.Mesh(backgroundGeometry, backgroundMaterial)
-        this.scene.add(this.background)
     }
 
     setModel()
@@ -72,9 +61,9 @@ export default class LivingRoom
         
         //Glass Materials
         this.glassMaterial = new THREE.MeshBasicMaterial({ 
-            color: '#AEDEFF',
+            color: '#fffff5',
             transparent: true,
-            opacity: 0.2
+            opacity: 0.5
         })
         this.glassMesh = this.model.children.find((child) => child.name === 'glass')
         this.glassMesh.material = this.glassMaterial
@@ -84,7 +73,7 @@ export default class LivingRoom
             vertexShader: drapesVertexShader,
             fragmentShader: drapesFragmentShader,
             // blending: THREE.AdditiveBlending,
-
+            depthWrite: false,
             uniforms:
             {
                 uTime: { value: 0 },
@@ -122,60 +111,127 @@ export default class LivingRoom
             side: THREE.FrontSide,
             blending: THREE.AdditiveBlending,
             transparent: true,
-            // depthWrite: false,
+            depthWrite: false,
             vertexShader: fakeGodRayVertexShader,
             fragmentShader: fakeGodRayFragmentShader,
             uniforms:
             {
-                uGlowColor: { value: new THREE.Color(0xfffcf5) },
-                uBlurOffset: { value: 0.8},
-                uAlphaBase: { value: 0.25},
-                uAlphaRays: { value: 0.10}
+                uGlowColor: { value: new THREE.Color(0xffffff) },
+                uBlurOffset: { value: 0.93},
+                uAlphaBase: { value: 0.35},
+                uAlphaRays: { value: 0.15},
+                uFrequency: { value: 1.0}
             }
         })
 
         this.fakeGodRayMesh1 = this.model.children.find((child) => child.name === 'godray1')
         this.fakeGodRayMesh1.material = this.fakeGodRayMaterial1
 
+        //Fake god ray 1bis
+        this.fakeGodRayMaterial1bis = new THREE.ShaderMaterial({
+            side: THREE.FrontSide,
+            transparent: true,
+            depthWrite: false,
+
+            vertexShader: fakeGodRayVertexShader,
+            fragmentShader: fakeGodRayFragmentShader,
+            uniforms:
+            {
+                uGlowColor: { value: new THREE.Color('#fffcf0') },
+                uBlurOffset: { value: 1.0},
+                uAlphaBase: { value: 0.3},
+                uAlphaRays: { value: 0.35},
+                uFrequency: { value: 0.87}
+            }
+        })
+
+        this.fakeGodRayMesh1bis = this.model.children.find((child) => child.name === 'godray1001')
+        this.fakeGodRayMesh1bis.material = this.fakeGodRayMaterial1bis
+
+
         //Fake god ray2
         this.fakeGodRayMaterial2 = new THREE.ShaderMaterial({
             side: THREE.FrontSide,
             blending: THREE.AdditiveBlending,
             transparent: true,
-            // depthWrite: false,
+            depthWrite: false,
             vertexShader: fakeGodRayVertexShader,
             fragmentShader: fakeGodRayFragmentShader,
             uniforms:
             {
-                uGlowColor: { value: new THREE.Color(0xfffcf5) },
-                uBlurOffset: { value: 1.1},
-                uAlphaBase: { value: 0.15},
-                uAlphaRays: { value: 0.10}
+                uGlowColor: { value: new THREE.Color(0xffffff) },
+                uBlurOffset: { value: 0.96},
+                uAlphaBase: { value: 0.20},
+                uAlphaRays: { value: 0.3},
+                uFrequency: { value: 1.62}
             }
         })
 
         this.fakeGodRayMesh2 = this.model.children.find((child) => child.name === 'godray2')
         this.fakeGodRayMesh2.material = this.fakeGodRayMaterial2
 
+        //Fake god ray2bis
+        this.fakeGodRayMaterial2bis = new THREE.ShaderMaterial({
+            side: THREE.FrontSide,
+            transparent: true,
+                        depthWrite: false,
+
+            vertexShader: fakeGodRayVertexShader,
+            fragmentShader: fakeGodRayFragmentShader,
+            uniforms:
+            {
+                uGlowColor: { value: new THREE.Color('#fffcf0') },
+                uBlurOffset: { value: 1.0},
+                uAlphaBase: { value: 0.50},
+                uAlphaRays: { value: 0.35},
+                uFrequency: { value: 1.78}
+            }
+        })
+        this.fakeGodRayMesh2bis = this.model.children.find((child) => child.name === 'godray2001')
+        this.fakeGodRayMesh2bis.material = this.fakeGodRayMaterial2bis
+
+
         //Fake god ray3
         this.fakeGodRayMaterial3 = new THREE.ShaderMaterial({
             side: THREE.FrontSide,
             blending: THREE.AdditiveBlending,
             transparent: true,
-            // depthWrite: false,
+            depthWrite: false,
             vertexShader: fakeGodRayVertexShader,
             fragmentShader: fakeGodRayFragmentShader,
             uniforms:
             {
-                uGlowColor: { value: new THREE.Color(0xFFF1A9) },
+                uGlowColor: { value: new THREE.Color(0xffffff) },
                 uBlurOffset: { value: 0.7},
-                uAlphaBase: { value: 0.2},
-                uAlphaRays: { value: 0.1}
+                uAlphaBase: { value: 0.20},
+                uAlphaRays: { value: 0.1},
+                uFrequency: { value: 1.0}
             }
         })
 
         this.fakeGodRayMesh3 = this.model.children.find((child) => child.name === 'godray3')
         this.fakeGodRayMesh3.material = this.fakeGodRayMaterial3
+
+        //Fake god ray3bis
+        this.fakeGodRayMaterial3bis = new THREE.ShaderMaterial({
+            side: THREE.FrontSide,
+            transparent: true,
+            depthWrite: false,
+            vertexShader: fakeGodRayVertexShader,
+            fragmentShader: fakeGodRayFragmentShader,
+            uniforms:
+            {
+                uGlowColor: { value: new THREE.Color('#fffcf0') },
+                uBlurOffset: { value: 1},
+                uAlphaBase: { value: 0.45},
+                uAlphaRays: { value: 0.25},
+                uFrequency: { value: 1.27}
+            }
+        })
+
+        this.fakeGodRayMesh3bis = this.model.children.find((child) => child.name === 'godray3001')
+        this.fakeGodRayMesh3bis.material = this.fakeGodRayMaterial3bis
+
     }
 
     hideMaterials()
@@ -186,6 +242,9 @@ export default class LivingRoom
         this.fakeGodRayMesh1.material.visible = false
         this.fakeGodRayMesh2.material.visible = false
         this.fakeGodRayMesh3.material.visible = false
+        this.fakeGodRayMesh1bis.material.visible = false
+        this.fakeGodRayMesh2bis.material.visible = false
+        this.fakeGodRayMesh3bis.material.visible = false
         this.lightsMesh.material.visible = false
     }
     
@@ -197,6 +256,9 @@ export default class LivingRoom
         this.fakeGodRayMesh1.material.visible = true
         this.fakeGodRayMesh2.material.visible = true
         this.fakeGodRayMesh3.material.visible = true
+        this.fakeGodRayMesh1bis.material.visible = true
+        this.fakeGodRayMesh2bis.material.visible = true
+        this.fakeGodRayMesh3bis.material.visible = true
         this.lightsMesh.material.visible = true
     }
 
@@ -208,11 +270,6 @@ export default class LivingRoom
             this.squarePosition.y* this.scaleRatio, 
             0)
         this.model.scale.set(this.baseScale * this.scaleRatio, this.baseScale * this.scaleRatio, this.baseScale * this.scaleRatio)
-
-        this.background.scale.set(30 * this.scaleRatio, 30 * this.scaleRatio, 1)
-        this.background.position.x = this.squarePosition.x* this.scaleRatio
-        this.background.position.y = this.squarePosition.y* this.scaleRatio
-        this.background.position.z = - 10 * this.scaleRatio
 
         this.drapeMaterial.uniforms.uScaleRatio.value = this.scaleRatio
     }

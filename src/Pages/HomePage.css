@@ -24,21 +24,38 @@
 }
 
 
+/* LoadingAnim */
+
+
 .home-page .cubeContainer {
   transform-origin: top left;
+  opacity: 1;
   transform: scale(0.5);
+  top:0;
+  left:1vw;
+  width: 55vw;
+  height:25%;
+  z-index: 3;
+  transition: opacity 0.3s;
+  margin: 0
+}
+
+.home-page .cubeContainer:hover {
+  opacity: 0.3;
+  transition: opacity 0.3s;
+  cursor: help;
 }
 
 @media only screen and (min-width: 768px) {
   .home-page .cubeContainer {
     transform: scale(0.8);
-    opacity: 0.9
+    width: 35vw;
+    height:20%;
   }
-}
 
-.home-page .face {
-  border-color: rgb(43, 5, 5);
-  border-width: 2px
+  .home-page .cubeContainer:hover {
+    opacity: 1;
+  }
 }
 
 .home-page .cube {
@@ -48,37 +65,55 @@
 
 .home-page .cubeMover {
   animation: upDown 2s alternate infinite ease-in-out;
+  position: absolute;
 }
 
 @keyframes upDown {
   to {
-    transform: translateY(5vh);
+    transform: translateY(8vh);
   }
 }
 
-.home-page .hole {
+.home-page .hole{
   top: 8vh;
   left: 5vh;
 }
 
+
 .home-page .cursor {
-  top: 1.5vh;
-  left: 5vh;
-  color: rgb(43, 5, 5)
+  top: 4.6vh;
+  left: 5.3vh;
 }
 
 .instruction {
   position: absolute;
   top: 1vh;
-  left: 6.5vh;
-  width: 22vw;
+  left: 2vw;
+  width: 25vw;
+  height: 10%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.instruction p {
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.107);
+  border-radius:1vh;
+  padding: 0.5vh;
 }
 
 @media only screen and (min-width: 768px) {
   .instruction {
     top: 3vh;
-    left: 10vh;
+    left: max(6.5vw, 12vh);
     width: 20vw;
+    height: 15%;
+  }
+
+  .instruction p {
+    text-align: left;
   }
 }
 
@@ -91,3 +126,4 @@
   opacity: 1;
   transition: opacity 0.3s
 }
+

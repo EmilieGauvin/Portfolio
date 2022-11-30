@@ -25,7 +25,7 @@ export default function AboutPage(props) {
 
   const englishTitle = 'About';
   const englishText = `I’m Emilie, a French creative developer with a background in architecture, graphic design, and mathematics. 
-My specialities are 3D modeling, interactive web experiences, and virtual set design.`;
+My areas of expertise are 3D modeling, interactive web experiences, and virtual set design.`;
   const englishCV = `-
 2022 / Three.js Journey course
 2017-2022 / Freelance exhibition and graphic designer
@@ -34,7 +34,7 @@ My specialities are 3D modeling, interactive web experiences, and virtual set de
 
 
   const frenchTitle = `À propos`;
-  const frenchText = `Je suis Emilie, une creative developpeuse française avec un background en architecture, design graphique et mathématiques. 
+  const frenchText = `Je suis Emilie, développeuse créative française avec un background en architecture, design graphique et mathématiques. 
 Mes spécialités sont la modélisation 3D, les expériences web intéractives et la conception de décors virtuels.`;
   const frenchCV = `-
   2022 / Cursus Three.js Journey
@@ -62,28 +62,28 @@ Mes spécialités sont la modélisation 3D, les expériences web intéractives e
         <div className="line"></div>
         <section className='skills'>
           <div className='right-align skills-column'>
-            <div><h4 className='skill'>Coding skills</h4></div>
+            <div><h5 className='skill'>Coding skills</h5></div>
             <div>
-              <h5 className='skill'><img src='../../static/skills/logo_threejs.png' />Three.js</h5>
-              <h5 className='skill'><img src='../../static/skills/logo_javascript.png' />Javascript</h5>
-              <h5 className='skill'><img src='../../static/skills/logo_react.png' />React</h5>
+              <p className='skill'><img src='../../static/skills/logo_threejs.png' />Three.js</p>
+              <p className='skill'><img src='../../static/skills/logo_javascript.png' />Javascript</p>
+              <p className='skill'><img src='../../static/skills/logo_react.png' />React</p>
             </div>
             <div>
-              <h5 className='skill'><img src='../../static/skills/logo_html.png' />HTML</h5>
-              <h5 className='skill'><img src='../../static/skills/logo_css.png' />CSS</h5>
+              <p className='skill'><img src='../../static/skills/logo_html.png' />HTML</p>
+              <p className='skill'><img src='../../static/skills/logo_css.png' />CSS</p>
             </div>
           </div>
           <div className="line skills-division"></div>
           <div className='left-align skills-column'>
-            <div><h4 className='skill'>Software skills</h4></div>
+            <div><h5 className='skill'>Software skills</h5></div>
             <div>
-              <h5 className='skill'><img src='../../static/skills/logo_blender.png' />Blender</h5>
-              <h5 className='skill'><img src='../../static/skills/logo_rhino.png' />Rhinoceros</h5>
-              <h5 className='skill'><img src='../../static/skills/logo_photoshop.png' />Photoshop</h5>
+              <p className='skill'><img src='../../static/skills/logo_blender.png' />Blender</p>
+              <p className='skill'><img src='../../static/skills/logo_rhino.png' />Rhinoceros</p>
+              <p className='skill'><img src='../../static/skills/logo_photoshop.png' />Photoshop</p>
             </div>
             <div>
-              <h5 className='skill'><img src='../../static/skills/logo_illustrator.png' />Illustrator</h5>
-              <h5 className='skill'><img src='../../static/skills/logo_autocad.png' />Autocad</h5>
+              <p className='skill'><img src='../../static/skills/logo_illustrator.png' />Illustrator</p>
+              <p className='skill'><img src='../../static/skills/logo_autocad.png' />Autocad</p>
             </div>
 
           </div>

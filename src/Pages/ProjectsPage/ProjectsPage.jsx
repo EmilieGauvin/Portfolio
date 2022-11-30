@@ -20,6 +20,14 @@ export default function ProjectsPage(props) {
     props.onChange(english)
   }, [english])
 
+  useEffect(() =>
+  {
+    if ( !/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) return;
+
+    activeProject === 0 ? experience.parallaxEnabled() : experience.parallaxDisabled()
+    console.log('parralax')
+  }, [activeProject])
+
   navigation.on('notProjectPage', () =>
   {
     setShowContent(false)
@@ -48,13 +56,13 @@ export default function ProjectsPage(props) {
     return (
     <div className={showContent === false ? "project-page hide" : "project-page show"}>
       <section className={activeCategory === 0 ? 'huge title project-page' : ' title project-page'}>
-        <h1 className='textButton' onClick = {handleCategory0}>Projects</h1>
+        <h1 className='textButton' onClick = {handleCategory0}>{english === true ? 'Projects' : 'Projets'}</h1>
         <button onClick={handleChangeLanguage}>{english === true ? 'en français ?' : 'in english?'}</button>
       </section>
       <section className={activeCategory === 0 ? 'huge main' : ' main'}>
         <div className="line"></div>
 
-        <section className='project-menu '>
+        <section className={activeCategory === 0 ? 'project-menu huge' : 'project-menu'}>
           <div className={activeCategory === 0 ? 'categories huge' : 'categories'}>
             {/* <button className={activeCategory === 1 ? 'active' : ''} onClick = {handleCategory1} name='category1'> */}
               <h4 className={activeCategory === 1 ? 'active textButton' : 'textButton'} onClick = {handleCategory1} name='category1'>
@@ -90,7 +98,7 @@ export default function ProjectsPage(props) {
 function NoCategory()
 {
     return (
-      <div className='projects'>
+      <div className='no-projects-thumbnails'>
       </div>
     )
 }

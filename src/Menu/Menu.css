@@ -35,8 +35,8 @@ section.menu.title {
 
 .navButton .navIcon {
   display: flex;
-  height: 2.5vh;
-  width: 2.5vh;
+  height: 2.3vh;
+  width: 2.3vh;
 }
 
 .navIcon img {
@@ -45,7 +45,7 @@ section.menu.title {
  }
 
 .navButton .navText {
-  line-height: 2.5vh;
+  line-height: 2.3vh;
   white-space: break-spaces;
 }
 

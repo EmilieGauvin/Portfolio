@@ -39,7 +39,6 @@ export default class Attic
     {
         //Import model
         this.model = this.resource.scene
-        console.log('attic')
         this.model.position.set(
             this.trianglePosition.x* this.scaleRatio, 
             this.trianglePosition.y* this.scaleRatio, 
@@ -69,13 +68,12 @@ export default class Attic
             transparent: true,
             opacity: 0.2
         })
-        this.glassAMesh = this.model.children.find((child) => child.name === 'glassA001')
+        // this.glassAMesh = this.model.children.find((child) => child.name === 'glassA001')
         this.glassBMesh = this.model.children.find((child) => child.name === 'glassB001')
-        this.glassAMesh.material = this.glassMaterial
+        // this.glassAMesh.material = this.glassMaterial
         this.glassBMesh.material = this.glassMaterial
 
         //fakeGodRay Materials
-        
         this.fakeGodRayMaterial = new THREE.ShaderMaterial({
             side: THREE.FrontSide,
             blending: THREE.AdditiveBlending,
@@ -85,32 +83,62 @@ export default class Attic
             fragmentShader: fakeGodRayFragmentShader,
             uniforms:
             {
-                uGlowColor: { value: new THREE.Color(0xffccaa) }
-            }        
+                uGlowColor: { value: new THREE.Color('#fff4cc') },
+                uBlurOffset: { value: 0.93},
+                uAlphaBase: { value: 0.1},
+                uAlphaRays: { value: 0.05},
+                uFrequency: { value: 1.0}
+            }       
         })
 
         this.fakeGodRayMesh = this.model.children.find((child) => child.name === 'godRay')
         this.fakeGodRayMesh.material = this.fakeGodRayMaterial
+
+        
+        //fakeGodRay Materials
+        this.fakeGodRayMaterialBis = new THREE.ShaderMaterial({
+            side: THREE.FrontSide,
+            transparent: true,
+            depthWrite: false,
+
+            vertexShader: fakeGodRayVertexShader,
+            fragmentShader: fakeGodRayFragmentShader,
+            uniforms:
+            {
+                uGlowColor: { value: new THREE.Color('#fff4cc') },
+                uBlurOffset: { value: 0.93},
+                uAlphaBase: { value: 0.1},
+                uAlphaRays: { value: 0.05},
+                uFrequency: { value: 0.86 }
+            }       
+        })
+
+        this.fakeGodRayMeshBis = this.model.children.find((child) => child.name === 'godRay001')
+        this.fakeGodRayMeshBis.material = this.fakeGodRayMaterialBis
     }
 
     hideMaterials()
     {
         this.bakedMesh.material.visible = false
-        this.glassAMesh.material.visible = false
+        // this.glassAMesh.material.visible = false
         this.glassBMesh.material.visible = false
         this.lightAMesh.material.visible = false
         this.lightBMesh.material.visible = false
         this.fakeGodRayMesh.material.visible = false
+        this.fakeGodRayMeshBis.material.visible = false
+
     }
 
     showMaterials()
     {
         this.bakedMesh.material.visible = true
-        this.glassAMesh.material.visible = true
+        // this.glassAMesh.material.visible = true
         this.glassBMesh.material.visible = true
         this.lightAMesh.material.visible = true
         this.lightBMesh.material.visible = true
         this.fakeGodRayMesh.material.visible = true
+        this.fakeGodRayMeshBis.material.visible = true
+
     }
 
     resize()

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Experience from "../Experience/Experience";
 import "./HomePage.css";
+import LoadingAnim from "../LoadingAnim/LoadingAnim";
 
 
 export default function HomePage(props) {
@@ -32,7 +33,7 @@ graphic design, and mathematics.`
 
 
   const frenchTitle = `Bonjour`;
-  const frenchText = `Je suis Emilie, une creative developpeuse 
+  const frenchText = `Je suis Émilie, développeuse créative
 avec un background en architecture, 
 design graphique et mathématiques. `
 
@@ -45,26 +46,31 @@ design graphique et mathématiques. `
 
   return (
   <div className={showContent === false ? "home-page hide" : "home-page show"}>
-
+{/* 
             <div className='cubeContainer'
-            onMouseEnter={() => setShowInstruction(true)} onMouseLeave={() => setShowInstruction(false)}
-            >
+            onMouseEnter={() => setShowInstruction(true)} onMouseLeave={() => setShowInstruction(false)}>
+                <div className="hole">
+                    <div className="face bottom "></div>
+                </div>
                 <div className="cubeMover">
-                    <div className="cursor">
-                        <img src="../static/textures/cursor-02.png" />
-                    </div>
                     <div className="cube">
                         <div className="face left"></div>
                         <div className="face right"></div>
                         <div className="face top"></div>
                     </div>
+                    <div className="cursor">
+                        <img src="../static/textures/cursor-01.png" />
+                    </div>
                 </div>
                 <div className="hole">
-                    <div className="face bottom"></div>
+                    <div className="face bottom front"></div>
                 </div>
-            </div>
+            </div> */}
+            <div
+            onMouseEnter={() => setShowInstruction(true)} onMouseLeave={() => setShowInstruction(false)}>
+            {<LoadingAnim />}</div>
             <div className={showInstuction === false ? 'instruction hideInstuction' : 'instruction showInstuction'}> 
-            <h5>{english === true ? 'Grab the shapes and match them to the drawing' : 'Déplace les formes dans les dessins correspondants'}</h5>
+            <p><i>{english === true ? 'Grab the shapes and match them to the drawing' : 'Déplace les formes dans les dessins correspondants'}</i></p>
             </div>
 
     <section className='title home'>

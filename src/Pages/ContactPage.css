@@ -3,6 +3,11 @@
   width: 100vw;
   display:flex;
   flex-direction: column;
+  color: var(--dark-color);
+}
+
+.contact-page .line:before{
+  background: var(--dark-color) 
 }
 
 .hide{
@@ -15,7 +20,7 @@
 }
 
 .contact-page section.text{
-  height: 60%;
+  height: 50%;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -27,11 +32,12 @@
   text-align: center;
 }
 
-.email {
+.email.textButton {
   user-select:text;
   -webkit-user-select:text;
   -moz-user-select:text;
   -ms-user-select:text;
+  cursor: text !important;
 }
 
 .social{

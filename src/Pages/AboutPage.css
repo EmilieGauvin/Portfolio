@@ -1,5 +1,6 @@
 .about-page
 {
+    width: 100vw;
   text-align: center;
   height: 100%;
   display:flex;
@@ -16,7 +17,7 @@
 }
 
 .about-page section.title{
-  color: #e9d6cd;
+  /* color: #e9d6cd; */
 }
 
 section.text-cv{
@@ -25,7 +26,7 @@ section.text-cv{
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  color: #e9d6cd;
+  /* color: #e9d6cd; */
 }
 
 @media only screen and (min-width: 768px)
@@ -36,9 +37,7 @@ section.text-cv{
   }
 }
 
-.about-page .line:before{
-  background: #e9d6cd;
-}
+
 
 .about-page .cv
 {
@@ -53,6 +52,7 @@ section.text-cv{
 
 section.skills {
   display: flex;
+  width: 96%;
   flex-direction : column;
   justify-content: space-between;
   align-items: center;
@@ -79,6 +79,7 @@ div.skills-column{
   align-items:center;
   width: 100%;
   height: 45%;
+  padding: 1vh 4vw;
 }
 
 @media only screen and (min-width: 768px)
@@ -99,7 +100,7 @@ div.skills-column{
 }
 
 .skill{
-  height: calc(15px + 0.5vw);
+  height: calc(15px + 0.4vw);
   /* padding-bottom: calc(5px + 0.5vw); */
   padding: 0 1vw;
   display: flex;
@@ -115,16 +116,16 @@ div.skills-column{
 @media only screen and (min-width: 768px)
 { 
   .left-align .skill{
-    color: #e9d6cd;
+    /* color: #e9d6cd; */
   } 
 }
 
 
 .skill img{
   position : relative;
-  top : calc(3px + 0.3vw);
+  /* top : calc(3px + 0.3vw); */
   height : 100%;
-  padding-right: calc(5px + 0.5vw);
+  padding-right: calc(3px + 0.3vw);
   padding-left: calc(5px + 0.5vw);
 }
 

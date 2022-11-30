@@ -20,10 +20,10 @@ export default class Environment
         }
 
         // this.setSunLight()
-        this.setAmbientLight()
-        this.setPointLight()
-        this.setRectAreaLight()
-        this.resize()
+        // this.setAmbientLight()
+        // this.setPointLight()
+        // this.setRectAreaLight()
+        // this.resize()
 
         this.resources = this.experience.resources
         this.environmentMap = {}
@@ -67,7 +67,7 @@ export default class Environment
     setAmbientLight()
     {   
         // this.ambientLight = new THREE.AmbientLight(0xffffff, 3.24)
-        this.ambientLight = new THREE.AmbientLight(0xfff1d6, 2.7)
+        this.ambientLight = new THREE.AmbientLight(0x00FF00, 40)
         this.scene.add(this.ambientLight)
 
                 //Debug

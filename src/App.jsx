@@ -5,6 +5,7 @@ import AboutPage from './Pages/AboutPage'
 import ProjectsPage from './Pages/ProjectsPage/ProjectsPage'
 import ContactPage from './Pages/ContactPage'
 import Menu from './Menu/Menu'
+import LoadingAnim from "./LoadingAnim/LoadingAnim";
 import { Routes, Route, useNavigate, useLocation } from "react-router-dom";
 import "./App.css";
 
@@ -16,24 +17,6 @@ export default function App() {
     const [endAnimation, setEndAnimation] = useState(false)
     const [english, setEnglish] = useState(true)
     
-    // const handleClick1 = () => {
-    //     experience.color1()
-    // }
-    // const handleClick2 = () => {
-    //     experience.color2()
-    // }
-    // const handleClick3 = () => {
-    //     experience.color3()
-    // }
-    // const handleClick4 = () => {
-    //     experience.color4()
-    // }
-    // const handleClick5 = () => {
-    //     experience.color5()
-    // }
-    // const handleClick6 = () => {
-    //     experience.color6()
-    // }
 
     useEffect(() => {
         resources.on('ready', () => {
@@ -42,7 +25,6 @@ export default function App() {
             {
                 setLoaded(true)  
             }, 500)
-            console.log(loaded)
         })
     }, [resources])
 
@@ -52,12 +34,11 @@ export default function App() {
 
     const changeEnglish = (newEnglish) => {
         setEnglish(newEnglish);
-        console.log(english)
       }
 
     return (
         <div className={loaded === false ? 'background notLoaded' : 'background loaded'}>
-            <div className={endAnimation === false ? 'cubeContainer notLoaded' : 'cubeContainer loaded'}>
+            {/* <div className={endAnimation === false ? 'cubeContainer notLoaded' : 'cubeContainer loaded'}>
                 <div className="cubeMover">
                     <div className="cursor">
                         <img src="../static/textures/cursor-01.png" />
@@ -70,8 +51,12 @@ export default function App() {
                 </div>
                 <div className="hole">
                     <div className="face bottom"></div>
-                    <div className="face left"></div>
-                    <div className="face right"></div>
+                </div>
+            </div> */}
+            <div className={endAnimation === false ? 'loadingAnim notLoaded' : 'loadingAnim loaded'}>
+                {<LoadingAnim />}
+                <div className='loading-text'> 
+                    <p><i>Grab the shapes and match them to the drawing</i></p>
                 </div>
             </div>
 

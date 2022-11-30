@@ -27,7 +27,9 @@ export default class AimCaps
         // this.backgroundColor5 = new THREE.Color('#f2eade')
         this.backgroundColor6 = new THREE.Color('#fbe5e5')
 
-        this.aimCapTextureSquare = this.resources.items.aimCapTextureSquare
+        this.aimCapTextureSquareEnglish = this.resources.items.aimCapTextureSquareEnglish
+        this.aimCapTextureSquareFrench = this.resources.items.aimCapTextureSquareFrench
+
         this.aimCapTextureTriangleEnglish = this.resources.items.aimCapTextureTriangleEnglish
         this.aimCapTextureTriangleFrench = this.resources.items.aimCapTextureTriangleFrench
         this.aimCapTextureCircle = this.resources.items.aimCapTextureCircle
@@ -36,6 +38,7 @@ export default class AimCaps
         this.circleAimCapSetUp()
         this.squareAimCapSetUp()
         this.triangleAimCapSetUp()
+        this.englishTrue()
         this.resize()
     }
 
@@ -63,9 +66,6 @@ export default class AimCaps
         this.squareAimCap.rotation.x = - Math.PI * 0.5
         this.squareAimCap.rotation.y = - Math.PI * 0.25
         this.scene.add(this.squareAimCap)
-
-        this.aimCapTextureSquare.repeat.set(1, 1)
-        this.squareAimCap.material.map = this.aimCapTextureSquare
     }
 
     triangleAimCapSetUp()
@@ -78,17 +78,23 @@ export default class AimCaps
         this.triangleAimCap.rotation.x = - Math.PI * 0.5
         this.scene.add(this.triangleAimCap)
         
-        this.englishTrue()
+        
     }
 
     englishTrue()
     {
+        this.aimCapTextureSquareEnglish.repeat.set(1, 1)
+        this.squareAimCap.material.map = this.aimCapTextureSquareEnglish
+
         this.aimCapTextureTriangleEnglish.repeat.set(1, 1)
         this.triangleAimCap.material.map = this.aimCapTextureTriangleEnglish
     }
 
     englishFalse()
     {
+        this.aimCapTextureSquareFrench.repeat.set(1, 1)
+        this.squareAimCap.material.map = this.aimCapTextureSquareFrench
+
         this.aimCapTextureTriangleFrench.repeat.set(1, 1)
         this.triangleAimCap.material.map = this.aimCapTextureTriangleFrench
     }
