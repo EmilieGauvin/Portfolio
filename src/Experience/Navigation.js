@@ -1,151 +1,95 @@
 import EventEmitter from "./Utils/EventEmitter"
-// import { Routes, Route, useNavigate, Link } from "react-router-dom";
 
-// let instance = null
-
-
-export default class Navigation extends EventEmitter
-{
-    constructor()
-    {
+export default class Navigation extends EventEmitter {
+    constructor() {
         super()
-
-        // if (instance)
-        // {
-        //     return instance
-        // }
-        // instance = this
-
-        // this.resetAllLoadedVariables()
     }
 
-    // resetAllLoadedVariables()
-    // {
-    //     this.homeLoaded = false
-    //     this.aboutLoaded = false
-    //     this.projectLoaded = false
-    //     this.contactLoaded = false
-    // }
-
-    resetToHomePage()
-    {
-        // this.resetAllLoadedVariables()
+    resetToHomePage() {
         this.trigger('resetToHomePage')
         this.trigger('notAboutPage')
         this.trigger('notHomePage')
         this.trigger('notProjectPage')
         this.trigger('notContactPage')
-        // console.log('alert ------ resetToHomePage')
     }
 
-    homePage()
-    {
-        // this.resetAllLoadedVariables()
+    homePage() {
         this.trigger('homePage')
         this.trigger('notAboutPage')
         this.trigger('notProjectPage')
         this.trigger('notContactPage')
-        // console.log('alert ------ homePage')
         this.homeLoaded = true
     }
 
-    resetBeforeAboutPage()
-    {
-        // this.resetAllLoadedVariables()
+    resetBeforeAboutPage() {
         this.trigger('resetBeforeAboutPage')
         this.trigger('notAboutPage')
         this.trigger('notHomePage')
         this.trigger('notProjectPage')
         this.trigger('notContactPage')
-        // console.log('alert ------ resetBeforeAboutPage')
     }
 
-    transitionAboutPage()
-    {
-        // this.resetAllLoadedVariables()
+    transitionAboutPage() {
         this.trigger('transitionAboutPage')
         this.trigger('notAboutPage')
         this.trigger('notHomePage')
         this.trigger('notProjectPage')
         this.trigger('notContactPage')
-        // console.log('alert ------ transitionAboutPage')
     }
 
-    aboutPage()
-    {
-        // this.resetAllLoadedVariables()
+    aboutPage() {
         this.trigger('aboutPage')
         this.trigger('notHomePage')
         this.trigger('notProjectPage')
         this.trigger('notContactPage')
-        // console.log('alert ------ aboutPage')
         this.aboutLoaded = true
     }
-    
-    resetBeforeProjectPage()
-    {
-        // this.resetAllLoadedVariables()
+
+    resetBeforeProjectPage() {
         this.trigger('resetBeforeProjectPage')
         this.trigger('notAboutPage')
         this.trigger('notHomePage')
         this.trigger('notProjectPage')
         this.trigger('notContactPage')
-        // console.log('alert ------ resetBeforeProjectPage')
     }
 
-    transitionProjectPage()
-    {
-        // this.resetAllLoadedVariables()
+    transitionProjectPage() {
         this.trigger('transitionProjectPage')
         this.trigger('notAboutPage')
         this.trigger('notHomePage')
         this.trigger('notProjectPage')
         this.trigger('notContactPage')
-        // console.log('alert ------ transitionProjectPage')
     }
 
-    projectPage()
-    {
-        // this.resetAllLoadedVariables()
+    projectPage() {
         this.trigger('projectPage')
         this.trigger('notAboutPage')
         this.trigger('notHomePage')
         this.trigger('notContactPage')
-        // console.log('alert ------ projectPage')
-        this.projectLoaded = true
     }
 
-    resetBeforeContactPage()
-    {
-        // this.resetAllLoadedVariables()
+    resetBeforeContactPage() {
         this.trigger('resetBeforeContactPage')
         this.trigger('notAboutPage')
         this.trigger('notHomePage')
         this.trigger('notProjectPage')
         this.trigger('notContactPage')
-        // console.log('alert ------ resetBeforeContactPage')
     }
-    
-    transitionContactPage()
-    {
-        // this.resetAllLoadedVariables()
+
+    transitionContactPage() {
         this.trigger('transitionContactPage')
         this.trigger('notAboutPage')
         this.trigger('notHomePage')
         this.trigger('notProjectPage')
         this.trigger('notContactPage')
-        // console.log('alert ------ transitionContactPage')
     }
 
-    contactPage()
-    {
-        // this.resetAllLoadedVariables()
-        // this.loading = false
+    contactPage() {
+
         this.trigger('contactPage')
         this.trigger('notAboutPage')
         this.trigger('notHomePage')
         this.trigger('notProjectPage')
-        // console.log('alert ------ contactPage')
-        // this.contactLoaded = true
+        this.contactLoaded = true
     }
 }

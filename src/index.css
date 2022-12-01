@@ -1,8 +1,5 @@
 :root {
   font-family: 'Noto Sans', sans-serif;
-
-  /* font-size: 16px;
-  line-height: 24px; */
   font-weight: 100;
 
   color-scheme: light dark;
@@ -10,30 +7,26 @@
   --light-color: rgba(255, 255, 255, 0.945);
   --background: #4742b1;
   color: var(--light-color);
-  /* background-color: #242424; */
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
-  
+
   user-select: none;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
-  -webkit-tap-highlight-color:  rgba(255, 255, 255, 0); 
-
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
 }
+
 html,
-body
-{
-    overflow: hidden;
-    touch-action: none;
-    height: 100%;
+body {
+  overflow: hidden;
+  touch-action: none;
+  height: 100%;
 }
-
-
 
 body {
   position: relative;
@@ -53,66 +46,63 @@ body.grab.grabbing {
   cursor: grabbing;
 }
 
-h1{
+h1 {
   font-weight: 600;
   font-size: calc(30px + 3.5vw);
   line-height: calc(35px + 3.5vw);
-  margin:0;
-  padding:0;
+  margin: 0;
+  padding: 0;
   font-family: 'Quicksand', sans-serif;
 }
 
 h4 {
   font-weight: 200;
   font-size: calc(14px + 1.1vw);
-  line-height: min(calc(20px + 1.4vw),calc(5px + 4vh));
+  line-height: min(calc(20px + 1.4vw), calc(5px + 4vh));
   white-space: break-spaces;
-    margin:0;
-  padding:0;
-
-
+  margin: 0;
+  padding: 0;
 }
 
 h5 {
   font-weight: 400;
   font-size: calc(11px + 0.8vw);
   white-space: break-spaces;
-  margin:0;
-  padding:0;
+  margin: 0;
+  padding: 0;
 }
 
 p {
   font-weight: 300;
   font-size: calc(10px + 0.7vw);
   line-height: calc(11px + 1.1vw);
-  margin:0;
-  padding:0;
+  margin: 0;
+  padding: 0;
 }
 
 a {
   font-weight: 400;
   font-size: calc(10px + 0.7vw);
-
 }
 
-.navButton .navText{
+.navButton .navText {
   font-weight: 400;
   font-size: calc(12px + 0.5vw);
-  margin:0;
-  padding:0;
+  margin: 0;
+  padding: 0;
 }
 
-.dark .navButton .navText{
+.dark .navButton .navText {
   color: var(--dark-color);
   transition: color 1s
 }
 
-.light .navButton .navText{
+.light .navButton .navText {
   color: var(--light-color);
   transition: color 1s
 }
 
-.navButton{
+.navButton {
   text-decoration: none;
   user-select: none;
   -webkit-user-select: none;
@@ -120,8 +110,7 @@ a {
   -ms-user-select: none;
 }
 
-.textButton{
-  /* white-space: nowrap; */
+.textButton {
   cursor: pointer !important;
   color: inherit !important;
   text-decoration: none !important;
@@ -129,17 +118,17 @@ a {
   transition: border 0.3s;
 }
 
-.textButton:hover{
-  border-bottom: 1px solid ;
+.textButton:hover {
+  border-bottom: 1px solid;
   border-color: inherit;
   transition: border 0.5s;
 }
 
 .textButton.active {
-  color:rgb(110, 42, 165)!important;
+  color: rgb(110, 42, 165) !important;
 }
 
-button{
+button {
   background: transparent;
   font-family: inherit;
   font-size: calc(10px + 0.7vw);
@@ -147,7 +136,7 @@ button{
   font-style: italic;
   color: inherit;
   text-align: center;
-  border:none;
+  border: none;
   cursor: pointer;
   white-space: nowrap;
   padding: 0;
@@ -155,14 +144,7 @@ button{
   transition: border 0.3s;
 }
 
-/* button:focus,
-button:focus-visible,
-button:hover,
-button:active {
-  border:none; }  */
-
-button:hover
-{
+button:hover {
   border-bottom: 1px solid;
   border-color: inherit;
   transition: border 0.5s;
@@ -174,20 +156,7 @@ button:hover
   transition: filter 0.3s;
   width: 100vw;
   height: 100vh;
-  top:0;
+  top: 0;
   overflow: hidden;
 }
-
-.webgl.blurred {
-  filter: blur(0.5rem) ;
-  transition: filter 7s;
-}
-
-/* @media only screen and (min-width: 768px) {
-  .webgl {
-    height: 100%;
-    top: -20vh;
-  }
-} */
-
 

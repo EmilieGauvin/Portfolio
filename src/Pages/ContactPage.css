@@ -1,25 +1,25 @@
-.contact-page{
+.contact-page {
   height: 100%;
   width: 100vw;
-  display:flex;
+  display: flex;
   flex-direction: column;
   color: var(--dark-color);
 }
 
-.contact-page .line:before{
-  background: var(--dark-color) 
+.contact-page .line:before {
+  background: var(--dark-color)
 }
 
-.hide{
-    opacity: 0;
+.hide {
+  opacity: 0;
 }
 
-.show{
+.show {
   opacity: 1;
   transition: opacity 3s
 }
 
-.contact-page section.text{
+.contact-page section.text {
   height: 50%;
   display: flex;
   flex-direction: column;
@@ -27,20 +27,19 @@
   align-items: center;
 }
 
-.contact-page h4.text
-{
+.contact-page h4.text {
   text-align: center;
 }
 
 .email.textButton {
-  user-select:text;
-  -webkit-user-select:text;
-  -moz-user-select:text;
-  -ms-user-select:text;
+  user-select: text;
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
   cursor: text !important;
 }
 
-.social{
+.social {
   display: flex;
   width: 100%;
   justify-content: space-around;

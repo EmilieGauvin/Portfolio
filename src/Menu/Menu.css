@@ -7,8 +7,6 @@ section.menu.title {
   align-items: flex-end;
 }
 
-
-
 .navigation {
   height: 100%;
   width: 100%;
@@ -59,7 +57,6 @@ section.menu.title {
   }
 }
 
-
 @media (hover: hover) {
 
   .navButton:hover .navText{
@@ -67,7 +64,6 @@ section.menu.title {
     transition: color 0.3s;
   }
 }
-
 
 .navIcon.home.one,
 .navIcon.home.two{
@@ -94,7 +90,7 @@ section.menu.title {
   transform: translateY(-23%);
 }
 
-.concentrate .navIcon.project{
+.concentrate .navIcon.projects{
   transform: translateY(-43%);
 }
 
@@ -114,17 +110,15 @@ section.menu.title {
 
 .concentrate .navIcon.home,
 .concentrate .navIcon.about,
-.concentrate .navIcon.project,
+.concentrate .navIcon.projects,
 .concentrate .navIcon.contact
 {
   transition: transform 1s
 }
 
-
-
 .deploy .navIcon.home,
 .deploy .navIcon.about,
-.deploy .navIcon.project,
+.deploy .navIcon.projects,
 .deploy .navIcon.contact
 {
   transition: transform 0.2s
