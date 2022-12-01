@@ -29,7 +29,6 @@ or learn more about what I do ?
 Get in touch !
 `
 
-
   const frenchTitle = `Contact`;
   const frenchText = `Vous souhaitez me parler de votre projet
 ou en apprendre plus sur ce que je fais ?

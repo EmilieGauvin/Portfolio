@@ -6,7 +6,7 @@ import ProjectsPage from './Pages/ProjectsPage/ProjectsPage'
 import ContactPage from './Pages/ContactPage'
 import Menu from './Menu/Menu'
 import LoadingAnim from "./LoadingAnim/LoadingAnim";
-import { Routes, Route, useNavigate, useLocation } from "react-router-dom";
+import { Routes, Route} from "react-router-dom";
 import "./App.css";
 
 export default function App() {
@@ -21,8 +21,7 @@ export default function App() {
     useEffect(() => {
         resources.on('ready', () => {
             setEndAnimation(true) 
-            window.setTimeout(() =>
-            {
+            window.setTimeout(() => {
                 setLoaded(true)  
             }, 500)
         })
@@ -38,21 +37,6 @@ export default function App() {
 
     return (
         <div className={loaded === false ? 'background notLoaded' : 'background loaded'}>
-            {/* <div className={endAnimation === false ? 'cubeContainer notLoaded' : 'cubeContainer loaded'}>
-                <div className="cubeMover">
-                    <div className="cursor">
-                        <img src="../static/textures/cursor-01.png" />
-                    </div>
-                    <div className="cube">
-                        <div className="face left"></div>
-                        <div className="face right"></div>
-                        <div className="face top"></div>
-                    </div>
-                </div>
-                <div className="hole">
-                    <div className="face bottom"></div>
-                </div>
-            </div> */}
             <div className={endAnimation === false ? 'loadingAnim notLoaded' : 'loadingAnim loaded'}>
                 {<LoadingAnim />}
                 <div className='loading-text'> 

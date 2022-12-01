@@ -6,7 +6,6 @@ import { useState, useEffect } from "react";
 const slideStyles = {
   width: "100%",
   height: "100%",
-  // borderRadius: "10px",
   backgroundSize: "cover",
   backgroundPosition: "center",
   position: 'absolute',
@@ -90,7 +89,7 @@ const ImageSlider = ({ slides }) => {
         </div>
       </div>
       {slides.map((slide, slideIndex) => (
-          <div
+          <div 
             style={currentIndex === slideIndex ? {...slideStyles, backgroundImage: `url(${slides[slideIndex].url})`, visibility: 'visible'} : {...slideStyles, backgroundImage: `url(${slides[slideIndex].url})`, visibility: 'hidden'}}
             key={slideIndex}
           ></div>

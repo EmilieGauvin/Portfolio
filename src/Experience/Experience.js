@@ -25,8 +25,8 @@ export default class Experience {
         //Global acces
         window.experience = this
 
-        //Stats, run 'npm install --save stats.js'
-        this.statsActive = false //window.location.hash === '#stats'
+        //Stats
+        this.statsActive = false
         if (this.statsActive) {
             this.stats = new Stats()
             this.stats.showPanel(0) // 0: fps, 1: ms, 2: mb, 3+: custom
@@ -47,7 +47,6 @@ export default class Experience {
         this.camera = new Camera()
         this.renderer = new Renderer()
         this.resources = new Resources(sources)
-        // this.loadingPage = new LoadingPage
 
         // Base and scaleRatio
         this.baseWidth = 20
@@ -55,9 +54,9 @@ export default class Experience {
         this.resize()
 
         //Base positions
-        this.circlePosition = {x: -3, y: 0.74, z: -5, radius: 1.51 }
-        this.squarePosition = {x: 1.70, y: -5.255, z: -5, radius: 2.38 }
-        this.trianglePosition = {x: 1.70, y: -2.38, z: -5, radius: 2.38 }
+        this.circlePosition = { x: -3, y: 0.74, z: -5, radius: 1.51 }
+        this.squarePosition = { x: 1.70, y: -5.255, z: -5, radius: 2.38 }
+        this.trianglePosition = { x: 1.70, y: -2.38, z: -5, radius: 2.38 }
 
         this.world = new World()
 
@@ -74,41 +73,6 @@ export default class Experience {
         this.navigationEvents()
     }
 
-    //  color1()
-    //  {
-    //     if (this.world.objectsAnimation) this.world.objectsAnimation.color1()
-    //     this.renderer.color1()
-    //  }
-
-    //  color2()
-    //  {
-    //     if (this.world.objectsAnimation) this.world.objectsAnimation.color2()
-    //     this.renderer.color2()
-    //  }
-
-    //  color3()
-    //  {
-    //     if (this.world.objectsAnimation) this.world.objectsAnimation.color3()
-    //     this.renderer.color3()
-    //  }
-
-    //  color4()
-    //  {
-    //     if (this.world.objectsAnimation) this.world.objectsAnimation.color4()
-    //     this.renderer.color4()
-    //  }
-
-    //  color5()
-    //  {
-    //     if (this.world.objectsAnimation) this.world.objectsAnimation.color5()
-    //     this.renderer.color5()
-    //  }
-
-    color6() {
-        if (this.world.objectsAnimation) this.world.objectsAnimation.color6()
-        this.renderer.color6()
-    }
-
     navigationEvents() {
         //Navigation events
         this.navigation.on('resetToHomePage', () => {
@@ -116,7 +80,7 @@ export default class Experience {
             //Update Camera
             this.camera.goTo(0, 0, 20, 'homePage', false, 0.05)
             //Blur background
-            document.querySelector(".webgl").classList.remove("blurred")
+            document.querySelector("#app").classList.remove("blurred")
         })
 
         this.navigation.on('homePage', () => {
@@ -125,7 +89,7 @@ export default class Experience {
             //Launch HomePage
             this.world.homePage()
             //Blur background
-            document.querySelector(".webgl").classList.remove("blurred")
+            document.querySelector("#app").classList.remove("blurred")
         })
 
         this.navigation.on('resetBeforeAboutPage', () => {
@@ -134,7 +98,7 @@ export default class Experience {
             //Position triangleMoving
             this.world.resetBeforeAboutPage()
             //Blur background
-            document.querySelector(".webgl").classList.remove("blurred")
+            document.querySelector("#app").classList.remove("blurred")
         })
 
         this.navigation.on('transitionAboutPage', () => {
@@ -150,7 +114,7 @@ export default class Experience {
             //Launch AboutPage
             this.world.aboutPage()
             //Blur background
-            document.querySelector(".webgl").classList.add("blurred")
+            document.querySelector("#app").classList.add("blurred")
         })
 
         this.navigation.on('resetBeforeProjectPage', () => {
@@ -159,7 +123,7 @@ export default class Experience {
             //Position squareMoving
             this.world.resetBeforeProjectPage()
             //Blur background
-            document.querySelector(".webgl").classList.remove("blurred")
+            document.querySelector("#app").classList.remove("blurred")
 
         })
 
@@ -176,7 +140,7 @@ export default class Experience {
             // this.world = new World()
             this.world.projectPage()
             //Blur background
-            document.querySelector(".webgl").classList.add("blurred")
+            document.querySelector("#app").classList.add("blurred")
         })
 
         this.navigation.on('resetBeforeContactPage', () => {
@@ -184,7 +148,7 @@ export default class Experience {
             //Position CircleMoving
             this.world.resetBeforeContactPage()
             //Blur background
-            document.querySelector(".webgl").classList.remove("blurred")
+            document.querySelector("#app").classList.remove("blurred")
         })
 
         this.navigation.on('transitionContactPage', () => {
@@ -199,8 +163,6 @@ export default class Experience {
             this.camera.atPage(this.circlePosition.x, this.circlePosition.y, 0)
             //Launch ProjectPage
             this.world.contactPage()
-            //Blur background
-            // document.querySelector(".webgl").classList.add("blurred")
         })
     }
 
@@ -212,21 +174,20 @@ export default class Experience {
         if (this.world.aimCaps) this.world.aimCaps.englishFalse()
     }
 
-    parallaxEnabled()
-    {
+    parallaxEnabled() {
         this.camera.parallaxEnabled = true
     }
 
-    parallaxDisabled()
-    {
+    parallaxDisabled() {
         this.camera.parallaxEnabled = false
     }
 
     resize() {
         this.scaleRatioCamera.resize()
+
         //Update scaleRatio
         if (this.sizes.width >= this.sizes.height * 1.5) {
-            this.scaleRatio = (visibleWidthAtZDepth(0.2, this.scaleRatioCamera.instance ) /( this.baseWidth * 1.5)) * 1.05
+            this.scaleRatio = (visibleWidthAtZDepth(0.2, this.scaleRatioCamera.instance) / (this.baseWidth * 1.5)) * 1.05
             this.windowHorizontal = true
         } else {
             this.scaleRatio = (visibleHeightAtZDepth(0.2, this.scaleRatioCamera.instance) / this.baseWidth) * 1.05
@@ -244,8 +205,7 @@ export default class Experience {
         this.camera.update()
         if (this.loadingPage) this.loadingPage.update()
         if (this.world) this.world.update()
-        if (this.postProcessing)
-            this.postProcessing.update()
+        if (this.postProcessing) this.postProcessing.update()
         else this.renderer.update()
 
         if (this.statsActive) this.stats.end()

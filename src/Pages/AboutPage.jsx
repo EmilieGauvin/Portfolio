@@ -22,7 +22,6 @@ export default function AboutPage(props) {
     setShowContent(true)
   }, [])
 
-
   const englishTitle = 'About';
   const englishText = `I’m Emilie, a French creative developer with a background in architecture, graphic design, and mathematics. 
 My areas of expertise are 3D modeling, interactive web experiences, and virtual set design.`;
@@ -62,7 +61,7 @@ Mes spécialités sont la modélisation 3D, les expériences web intéractives e
         <div className="line"></div>
         <section className='skills'>
           <div className='right-align skills-column'>
-            <div><h5 className='skill'>Coding skills</h5></div>
+            <div><h5 className='skill'>{english === true ? 'Coding skills' : 'Langages'}</h5></div>
             <div>
               <p className='skill'><img src='../../static/skills/logo_threejs.png' />Three.js</p>
               <p className='skill'><img src='../../static/skills/logo_javascript.png' />Javascript</p>
@@ -75,7 +74,7 @@ Mes spécialités sont la modélisation 3D, les expériences web intéractives e
           </div>
           <div className="line skills-division"></div>
           <div className='left-align skills-column'>
-            <div><h5 className='skill'>Software skills</h5></div>
+            <div><h5 className='skill'>{english === true ? 'Software skills' : 'Logiciels'}</h5></div>
             <div>
               <p className='skill'><img src='../../static/skills/logo_blender.png' />Blender</p>
               <p className='skill'><img src='../../static/skills/logo_rhino.png' />Rhinoceros</p>
@@ -85,7 +84,6 @@ Mes spécialités sont la modélisation 3D, les expériences web intéractives e
               <p className='skill'><img src='../../static/skills/logo_illustrator.png' />Illustrator</p>
               <p className='skill'><img src='../../static/skills/logo_autocad.png' />Autocad</p>
             </div>
-
           </div>
         </section>
       </section>

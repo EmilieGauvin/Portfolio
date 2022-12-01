@@ -5,6 +5,10 @@
   display: flex;
 }
 
+#app.blurred {
+  backdrop-filter: blur(0.7rem);
+  transition: backdrop-filter 7s;
+}
 
 .app {
   height: 100%;
@@ -26,8 +30,6 @@ section.title {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* border: solid;
-  border-color: rgb(187, 255, 0); */
 }
 
 section.main {
@@ -36,8 +38,6 @@ section.main {
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  /* border: solid;
-  border-color: blue; */
 }
 
 @media only screen and (min-width: 768px) {
@@ -50,10 +50,8 @@ section.main {
   }
 }
 
-
 .line {
   position: relative;
-  /* left: 2vw; */
   width: 100%;
   height: 0;
   transition: transform 0.3s;
@@ -78,20 +76,15 @@ section.main {
   transition: transform 2s;
 }
 
-
 .background.notLoaded{
   height: 100%;
   width: 100%;
   background-color: var(--background);
-  /* z-index:2; */
-  /* opacity: 1; */
   transition:  background-color 2s;
 }
 
 .background.loaded{
-  /* height: 100vh; */
   background-color: transparent;
-   /* z-index:0; */
   transition:  background-color 2s;
 }
 

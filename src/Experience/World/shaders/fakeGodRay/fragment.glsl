@@ -9,12 +9,7 @@ varying vec2 vUv;
 void main()
 {
     vec3 glow = uGlowColor ;
-    float blur = 
-    // 1.0
-    (uBlurOffset - vUv.y) * 3.0 
-    * vUv.x * 1.5
-    * (1.0 - vUv.x) * 1.5
-    ;
+    float blur = (uBlurOffset - vUv.y) * 3.0 * vUv.x * 1.5 * (1.0 - vUv.x) * 1.5 ;
     blur = clamp(blur, 0.0, 1.0) ;
 
     float ray1 = mod(vUv.x * uFrequency* 5.0, 1.0) ;

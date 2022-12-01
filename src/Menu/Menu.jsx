@@ -82,7 +82,6 @@ export default function Menu(props) {
 
         navigation.on('aboutPage', () =>
         {
-            console.log('onAboutPage', onAboutPage)
             if (onAboutPage === false) 
             {
                 setLightText(true)
@@ -90,7 +89,6 @@ export default function Menu(props) {
                     setOnHomePage(false)
                     setOnProjectPage(false)
                     setOnContactPage(false)
-                console.log('2')
                 navigate('/about')
             }  
         })
@@ -163,9 +161,6 @@ export default function Menu(props) {
         setLightText(false)
     }
 
-
-    
-
     return (
         <section className={ lightText === false ? 'menu title dark' : 'menu title light'}>
         <nav onMouseEnter={() => setDeployMenu(true)}
@@ -191,7 +186,7 @@ export default function Menu(props) {
             </NavLink>
             <NavLink  className='navButton' onClick={deployMenu === false ? handleDeployMenu : handleProjectClick}>
                 <div className="navText" >{english === true ? 'Projects' : 'Projets'} </div>
-                <div className='navIcon project'>
+                <div className='navIcon projects'>
                     <img src="../../static/menu/menu-03.png"/>
                     </div>
             </NavLink>
