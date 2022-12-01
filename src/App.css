@@ -51,8 +51,6 @@ section.main {
 }
 
 
-
-
 .line {
   position: relative;
   /* left: 2vw; */
@@ -64,7 +62,7 @@ section.main {
 .line:before {
   content: " ";
   display: block;
-  height: 0.1px;
+  height: 1px;
   top: 50%;
   right: 0;
   background: var(--light-color);

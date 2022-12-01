@@ -137,7 +137,7 @@ export default class LivingRoom
             fragmentShader: fakeGodRayFragmentShader,
             uniforms:
             {
-                uGlowColor: { value: new THREE.Color('#fffcf0') },
+                uGlowColor: { value: new THREE.Color('#fff4cc') },
                 uBlurOffset: { value: 1.0},
                 uAlphaBase: { value: 0.3},
                 uAlphaRays: { value: 0.35},
@@ -201,7 +201,7 @@ export default class LivingRoom
             fragmentShader: fakeGodRayFragmentShader,
             uniforms:
             {
-                uGlowColor: { value: new THREE.Color(0xffffff) },
+                uGlowColor: { value: new THREE.Color('#fff4cc') },
                 uBlurOffset: { value: 0.7},
                 uAlphaBase: { value: 0.20},
                 uAlphaRays: { value: 0.1},
@@ -221,7 +221,7 @@ export default class LivingRoom
             fragmentShader: fakeGodRayFragmentShader,
             uniforms:
             {
-                uGlowColor: { value: new THREE.Color('#fffcf0') },
+                uGlowColor: { value: new THREE.Color('#fff4cc') },
                 uBlurOffset: { value: 1},
                 uAlphaBase: { value: 0.45},
                 uAlphaRays: { value: 0.25},

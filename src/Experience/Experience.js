@@ -139,14 +139,14 @@ export default class Experience {
 
         this.navigation.on('transitionAboutPage', () => {
             //Update Camera
-            this.camera.goTo(this.trianglePosition.x, this.trianglePosition.y, -0.5, 'aboutPage', true, 0.05)
+            this.camera.goTo(this.trianglePosition.x, this.trianglePosition.y, -0.4, 'aboutPage', true, 0.05)
             //Launch AboutPage
             this.world.transitionAboutPage()
         })
 
         this.navigation.on('aboutPage', () => {
             //Update Camera
-            this.camera.atPage(this.trianglePosition.x, this.trianglePosition.y, -0.5)
+            this.camera.atPage(this.trianglePosition.x, this.trianglePosition.y, -0.4)
             //Launch AboutPage
             this.world.aboutPage()
             //Blur background

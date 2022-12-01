@@ -182,6 +182,7 @@ div.categories.huge {
 .categories h4{
   font-family: 'Quicksand', sans-serif !important;
   font-weight: 600 !important;
+  white-space: nowrap;
 }
 
 .huge.categories h4{
