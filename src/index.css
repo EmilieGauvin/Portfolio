@@ -3,7 +3,7 @@
   font-weight: 100;
 
   color-scheme: light dark;
-  --dark-color: rgb(35, 0, 105);
+  --dark-color: rgb(27, 0, 80);
   --light-color: rgba(255, 255, 255, 0.945);
   --background: #4742b1;
   color: var(--light-color);

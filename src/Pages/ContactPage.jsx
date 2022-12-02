@@ -55,8 +55,8 @@ const handleChange = () =>
         <h5 className=" email textButton"><i>contact@emiliegauvin.com</i></h5>
         <br/>
         <div className="social">
-          {/* <h5 className="textButton"><i>instagram</i></h5> */}
-          {/* <h5 className="textButton"><i>malt</i></h5> */}
+          <a className="textButton" href="https://twitter.com/EmilieGauvin_" target="_blank"><i>twitter</i></a>
+          <a className="textButton" href="https://www.instagram.com/emiliegauvin__" target="_blank"><i>instagram</i></a>
           <a className='textButton' href="https://github.com/EmilieGauvin" target="_blank"><i>github</i></a>
         </div>
       </section>

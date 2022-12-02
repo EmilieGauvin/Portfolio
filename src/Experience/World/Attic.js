@@ -59,32 +59,13 @@ export default class Attic {
             {
                 uGlowColor: { value: new THREE.Color('#fff4cc') },
                 uBlurOffset: { value: 0.93 },
-                uAlphaBase: { value: 0.1 },
+                uAlphaBase: { value: 0.25 },
                 uAlphaRays: { value: 0.05 },
-                uFrequency: { value: 1.0 }
+                uFrequency: { value: 0.5 }
             }
         })
         this.fakeGodRayMesh = this.model.children.find((child) => child.name === 'godRay')
         this.fakeGodRayMesh.material = this.fakeGodRayMaterial
-
-        //fakeGodRay Materials
-        this.fakeGodRayMaterialBis = new THREE.ShaderMaterial({
-            side: THREE.FrontSide,
-            transparent: true,
-            depthWrite: false,
-            vertexShader: fakeGodRayVertexShader,
-            fragmentShader: fakeGodRayFragmentShader,
-            uniforms:
-            {
-                uGlowColor: { value: new THREE.Color('#fff4cc') },
-                uBlurOffset: { value: 0.93 },
-                uAlphaBase: { value: 0.1 },
-                uAlphaRays: { value: 0.05 },
-                uFrequency: { value: 0.86 }
-            }
-        })
-        this.fakeGodRayMeshBis = this.model.children.find((child) => child.name === 'godRay001')
-        this.fakeGodRayMeshBis.material = this.fakeGodRayMaterialBis
     }
 
     hideMaterials() {
@@ -92,7 +73,6 @@ export default class Attic {
         this.glassMesh.material.visible = false
         this.lightMesh.material.visible = false
         this.fakeGodRayMesh.material.visible = false
-        this.fakeGodRayMeshBis.material.visible = false
 
     }
 
@@ -101,7 +81,6 @@ export default class Attic {
         this.glassMesh.material.visible = true
         this.lightMesh.material.visible = true
         this.fakeGodRayMesh.material.visible = true
-        this.fakeGodRayMeshBis.material.visible = true
 
     }
 
