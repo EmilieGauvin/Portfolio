@@ -109,12 +109,12 @@ export default [
         projectNumber: '31',
         englishTitle: 'The attic',
         englishText: <p><br/>This 3D model was realized for the purpose of this portfolio. 
-        <br/>It was built and texturized in Blender and light effects were added in Three.js with custom shaders. 
+        <br/>It was built and texturized in Blender and sunrays were added in Three.js with a custom shader material. 
         <br/>Move your cursor around to move the camera inside the model.
         <br/><br/><i>Built in Three.js and Blender</i></p>,
         frenchTitle: 'Le grenier',
         frenchText: <p><br/>Ce modèle 3D a été réalisé afin de faire partie de ce portfolio. 
-        <br/>Il a été modélisé et texturé dans Blender et des effets de lumière par <i>custom shaders</i> lui ont été ajoutés en Three.js. 
+        <br/>Il a été modélisé et texturé dans Blender et des rayons de soleils en <i>custom shader material</i> lui ont été ajoutés en Three.js. 
         <br/>La caméra bouge dans le modèle avec les mouvements du curseur.
         <br/><br/><i>Construit en Three.js and Blender</i></p>,
         slides: [
@@ -129,12 +129,12 @@ export default [
         projectNumber: '32',
         englishTitle: 'The living-room',
         englishText: <p><br/>This 3D model was realized for the purpose of this portfolio. 
-        <br/>It was built and texturized in Blender and light and movement effects were added in Three.js with custom shaders. 
+        <br/>It was built and texturized in Blender and sunrays and movement effects were added in Three.js with custom shader materials. 
         <br/>Move your cursor around to move the camera inside the model.
         <br/><br/><i>Built in Three.js and Blender</i></p>,
         frenchTitle: 'Le salon',
         frenchText: <p><br/>Ce modèle 3D a été réalisé afin de faire partie de ce portfolio. 
-        <br/>Il a été modélisé et texturé dans Blender et des effets de lumière et de mouvement par <i>custom shaders</i> lui ont été ajoutés en Three.js. 
+        <br/>Il a été modélisé et texturé dans Blender et des rayons de soleils et effets de mouvement par <i>custom shader materials</i> lui ont été ajoutés en Three.js. 
         <br/>La caméra bouge dans le modèle avec les mouvements du curseur.
         <br/><br/><i>Construit en Three.js and Blender</i></p>,
         slides: [
@@ -145,6 +145,26 @@ export default [
           ],
         link: 'https://the-living-room.vercel.app/'
     },
+    {
+      projectNumber: '33',
+      englishTitle: 'Teshima Museum',
+      englishText: <p><br/> This is a 3D model of the Teshima Art Museum in Japan, designed by artist Rei Naito and architect Ryue Nishizawa. 
+      <br/>It was built and texturized in Blender and sunrays effects were added in Three.js with custom shader materials. 
+      <br/>Move around freely inside the model by controlling the camera with your cursor.
+      <br/><br/><i>Built in Three.js and Blender</i></p>,
+      frenchTitle: 'Musée Teshima',
+      frenchText: <p><br/>Ce modèle 3D représente le Teshima Art Museum au Japon, conçu par l'artiste Rei Naito et l'architecte Ryue Nishizawa. 
+      <br/>Il a été modélisé et texturé dans Blender et des rayons de soleils par <i>custom shader materials</i> lui ont été ajoutés en Three.js. 
+      <br/>On se déplace librement dans le modèle grâce à la camera qui est contrôlée par le curseur.
+      <br/><br/><i>Construit en Three.js and Blender</i></p>,
+      slides: [
+          { url: "../../static/projects/teshima/01.png", title: "one" },
+          { url: "../../static/projects/teshima/02.png", title: "two" },
+          { url: "../../static/projects/teshima/03.png", title: "three" },
+          { url: "../../static/projects/teshima/04.png", title: "four" },
+        ],
+      link: 'https://teshima-museum.vercel.app/'
+  },
 ]
 
 

@@ -111,24 +111,20 @@ function Category1(props) {
     setShowContent(true)
   }, [])
 
-
+-
   useEffect(() => {
     props.onChange(activeProject)
   }, [activeProject])
 
-  const handleProject1 = () => setActiveProject(1)
-  const handleProject2 = () => setActiveProject(2)
-  const handleProject3 = () => setActiveProject(3)
-
   return (
     <div className={showContent === false ? "projects-thumbnails hide" : "projects-thumbnails show"}>
-      <h5 className={activeProject === 1 ? 'active textButton' : ' textButton'} onClick={handleProject1}>
+      <h5 className={activeProject === 1 ? 'active textButton' : ' textButton'} onClick={() => setActiveProject(1)}>
         <i>{english === true ? projectsContent[1].englishTitle : projectsContent[1].frenchTitle}</i>
       </h5>
-      <h5 className={activeProject === 2 ? 'active textButton' : ' textButton'} onClick={handleProject2}>
+      <h5 className={activeProject === 2 ? 'active textButton' : ' textButton'} onClick={() => setActiveProject(2)}>
         <i>{english === true ? projectsContent[2].englishTitle : projectsContent[2].frenchTitle}</i>
       </h5>
-      <h5 className={activeProject === 3 ? 'active textButton' : ' textButton'} onClick={handleProject3}>
+      <h5 className={activeProject === 3 ? 'active textButton' : ' textButton'} onClick={() => setActiveProject(3)}>
         <i>{english === true ? projectsContent[3].englishTitle : projectsContent[3].frenchTitle}</i>
       </h5>
     </div>
@@ -149,11 +145,9 @@ function Category2(props) {
     props.onChange(activeProject)
   }, [activeProject])
 
-  const handleProject4 = () => setActiveProject(4)
-
   return (
     <div className={showContent === false ? "projects-thumbnails hide" : "projects-thumbnails show"}>
-      <h5 className={activeProject === 4 ? 'active textButton' : ' textButton'} onClick={handleProject4}>
+      <h5 className={activeProject === 4 ? 'active textButton' : ' textButton'} onClick={() => setActiveProject(4)}>
         <i>{english === true ? projectsContent[4].englishTitle : projectsContent[4].frenchTitle}</i>
       </h5>
       <h5 className='placeholder'>place holder</h5>
@@ -175,18 +169,17 @@ function Category3(props) {
     props.onChange(activeProject)
   }, [activeProject])
 
-  const handleProject5 = () => setActiveProject(5)
-  const handleProject6 = () => setActiveProject(6)
-
   return (
     <div className={showContent === false ? "projects-thumbnails hide" : "projects-thumbnails show"}>
-      <h5 className={activeProject === 5 ? 'active textButton' : ' textButton'} onClick={handleProject5}>
+      <h5 className={activeProject === 5 ? 'active textButton' : ' textButton'} onClick={() => setActiveProject(5)}>
         <i>{english === true ? projectsContent[5].englishTitle : projectsContent[5].frenchTitle}</i>
       </h5>
-      <h5 className={activeProject === 6 ? 'active textButton' : ' textButton'} onClick={handleProject6}>
+      <h5 className={activeProject === 6 ? 'active textButton' : ' textButton'} onClick={() => setActiveProject(6)}>
         <i>{english === true ? projectsContent[6].englishTitle : projectsContent[6].frenchTitle}</i>
       </h5>
-      <h5 className='placeholder'>place holder</h5>
+      <h5 className={activeProject === 7 ? 'active textButton' : ' textButton'} onClick={() => setActiveProject(7)}>
+        <i>{english === true ? projectsContent[7].englishTitle : projectsContent[7].frenchTitle}</i>
+      </h5>
     </div>
   )
 }
