@@ -1,4 +1,4 @@
-import * as THREE from 'https://unpkg.com/three@0.145.0/build/three.module'
+import * as THREE from 'https://cdn.jsdelivr.net/gh/mrdoob/three.js@r146/build/three.module.js'
 import Experience from "../Experience";
 import sunVertexShader from './shaders/sun/vertex.glsl'
 import sunFragmentShader from './shaders/sun/fragment.glsl'

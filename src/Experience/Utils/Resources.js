@@ -1,7 +1,7 @@
-import * as THREE from 'https://unpkg.com/three@0.145.0/build/three.module'
+import * as THREE from 'https://cdn.jsdelivr.net/gh/mrdoob/three.js@r146/build/three.module.js'
 import EventEmitter from "./EventEmitter";
-import {GLTFLoader} from 'https://unpkg.com/three@0.145.0/examples/jsm/loaders/GLTFLoader.js';
-import {DRACOLoader} from 'https://unpkg.com/three@0.145.0/examples/jsm/loaders/DRACOLoader.js';
+import {GLTFLoader} from 'https://cdn.jsdelivr.net/gh/mrdoob/three.js@r146/examples/jsm/loaders/GLTFLoader.js';
+import {DRACOLoader} from 'https://cdn.jsdelivr.net/gh/mrdoob/three.js@r146/examples/jsm/loaders/DRACOLoader.js';
 
 export default class Resources extends EventEmitter
 {
