@@ -150,7 +150,9 @@ function Category2(props) {
       <h5 className={activeProject === 4 ? 'active textButton' : ' textButton'} onClick={() => setActiveProject(4)}>
         <i>{english === true ? projectsContent[4].englishTitle : projectsContent[4].frenchTitle}</i>
       </h5>
-      <h5 className='placeholder'>place holder</h5>
+      <h5 className={activeProject === 8 ? 'active textButton' : ' textButton'} onClick={() => setActiveProject(8)}>
+        <i>{english === true ? projectsContent[8].englishTitle : projectsContent[8].frenchTitle}</i>
+      </h5>
       <h5 className='placeholder'>place holder</h5>
     </div>
   )

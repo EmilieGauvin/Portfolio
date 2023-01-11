@@ -165,6 +165,24 @@ export default [
         ],
       link: 'https://teshima-museum.vercel.app/'
   },
+  {
+    projectNumber: '22',
+    englishTitle: '3D puzzle',
+    englishText: <p><br/> Built on 8th Wall AR tools, this is a 3D immersive puzzle where one pieces together a 360° photo.
+    <br/>This project only work on mobile devices, which allow the player to spin around and see the whole puzzle. 
+    <br/>Move the puzzle pieces by dragging them and snap them to the photo pieces.
+    <br/><br/><i>Built in 8th Wall, Three.js and Blender</i></p>,
+    frenchTitle: 'Puzzle 3D',
+    frenchText: <p><br/>Construit grâce aux outils AR the 8th Wall, ce projet est un puzzle 3D immersif où l'on reconstruit une photo 360°.
+    <br/>Ce projet ne fonctionne que sur appareil mobile, ce qui permet au joueur de tourner sur lui-même afin de voir tout le puzzle. 
+    <br/>Les pièces de puzzle se déplacent en les faisant glisser sur l'écran et se connectent aux morceaux de photo.
+    <br/><br/><i>Construit dans 8th Wall, Three.js and Blender</i></p>,
+    slides: [
+        { url: "../../static/projects/puzzle/01.png", title: "one" },
+        { url: "../../static/projects/puzzle/02.png", title: "two" },
+        { url: "../../static/projects/puzzle/03.png", title: "three" },
+        { url: "../../static/projects/puzzle/04.png", title: "four" },
+      ],
+    link: 'https://emiliegauvin.8thwall.app/ar-puzzle/'
+},
 ]
-
-
