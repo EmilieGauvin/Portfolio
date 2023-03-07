@@ -185,4 +185,27 @@ export default [
       ],
     link: 'https://emiliegauvin.8thwall.app/ar-puzzle/'
 },
+{
+  projectNumber: '23',
+  englishTitle: 'Shared Space',
+  englishText: <p><br/> This project is a collaborative game. 
+  <br/>The planet is a shared space, where everyone can build cities and plant trees.
+  <br/>It is up to the visitor to take care of what the ones before him left, or take over the whole planet.
+
+  <br/><br/><i>Built in Three.js, Blender</i></p>,
+  frenchTitle: 'Espace partagé',
+  frenchText: <p><br/>Ce projet est un jeu collaboratif.
+  <br/>La planète est un espace partagé, où chacun peut bâtir des villes et planter des arbres.
+  <br/>C'est au visiteur de décider s'il prendra soin des créations de ceux qui l'ont précédé, où s'il s'emparera de la planète entière.
+  <br/><br/><i>Construit dans Three.js and Blender</i></p>,
+  slides: [
+      { url: "../../static/projects/sharedSpace/01.png", title: "one" },
+      { url: "../../static/projects/sharedSpace/02.png", title: "two" },
+      { url: "../../static/projects/sharedSpace/03.png", title: "three" },
+      { url: "../../static/projects/sharedSpace/04.png", title: "four" },
+      { url: "../../static/projects/sharedSpace/05.png", title: "five" },
+      { url: "../../static/projects/sharedSpace/06.png", title: "six" },
+    ],
+  link: 'https://shared-space.vercel.app/'
+},
 ]
