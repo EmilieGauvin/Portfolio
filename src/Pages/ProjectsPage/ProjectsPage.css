@@ -249,8 +249,10 @@ section.project {
 
 h4.project-title {
   font-family: 'Quicksand', sans-serif;
+  font-weight: 500 !important;
   font-size: calc(20px + 2.5vw);
   line-height: calc(25px + 2.5vw);
+  margin-bottom: calc(5px + 0.5vw);
 }
 
 @media only screen and (min-width: 768px) {
@@ -280,4 +282,5 @@ h4.project-title {
     height: auto;
     padding-left: 0;
   }
+
 }

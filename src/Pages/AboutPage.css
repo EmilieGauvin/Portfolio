@@ -64,7 +64,7 @@ div.skills-column {
 }
 
 .skill {
-  height: calc(15px + 0.4vw);
+  height: calc(12px + 0.35vw);
   padding: 0 1vw;
   display: flex;
   justify-content: center;
@@ -84,10 +84,10 @@ div.skills-column {
   padding-left: calc(5px + 0.5vw);
 }
 
-.line.skills-division {
+/* .line.skills-division {
   visibility: visible;
   width: 50%
-}
+} */
 
 @media only screen and (min-width: 768px) {
 
@@ -103,7 +103,11 @@ div.skills-column {
     height: 100%;
   }
 
-  .line.skills-division {
-    visibility: hidden
+  .text-cv h4 {
+    font-size: calc(12px + 1vw);
   }
+
+  /* .line.skills-division {
+    visibility: hidden
+  } */
 }

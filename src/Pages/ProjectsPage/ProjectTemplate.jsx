@@ -2,10 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./ProjectsPage.css";
 import ImageSlider from "./ImageSlider";
 
-export default function ProjectTemplate(props) {
-  const content = props.content
-  const activeProject = props.activeProject
-  const english = props.english
+export default function ProjectTemplate({content, activeProject, english}) {
   const [activeProjectCopy, setActiveProjectCopy] = useState(0)
   const [showContent, setShowContent] = useState(false)
 

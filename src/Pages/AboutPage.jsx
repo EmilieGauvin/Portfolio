@@ -1,56 +1,60 @@
-import React, { useState, useEffect } from "react";
+import React, { useMemo, useState, useEffect } from "react";
 import Experience from "../Experience/Experience";
 import "./AboutPage.css";
 
+export default function AboutPage({ english, changeLanguage }) {
+  const [showContentAbout, setShowContent] = useState(false)
 
-export default function AboutPage(props) {
-  const experience = new Experience()
-  const navigation = experience.navigation
-  const [showContent, setShowContent] = useState(false)
-  const [english, setEnglish] = useState(props.english)
-
-  useEffect(() => {
-    props.onChange(english)
-  }, [english])
-
-  navigation.on('notAboutPage', () => {
-    setShowContent(false)
-
+  const experience = useMemo(() => {
+    const experience = new Experience
+    return experience
   })
 
   useEffect(() => {
-    setShowContent(true)
+    setTimeout(() => setShowContent(true), 100)
+
+    experience.navigation.on('notAboutPage', () => {
+      setShowContent(false)
+    })
+
+    return () => experience.navigation.off('notAboutPage', () => { })
   }, [])
 
   const englishTitle = 'About';
-  const englishText = `I’m Emilie, a French creative developer with a background in architecture, graphic design, and mathematics. 
-My areas of expertise are 3D modeling, interactive web experiences, and virtual set design.`;
+  const englishText = `I’m Emilie, a French creative developer 
+  with a background in architecture. 
+My areas of expertise are interactive web experiences 
+and 3D modeling.`;
   const englishCV = `-
 2022 / Three.js Journey course
-2017-2022 / Freelance exhibition and graphic designer
+2018-2022 / Freelance exhibition and graphic designer
+2017-2018 / Exhibition designer studies,
 2014-2017 / Architect in architecture studios 
-2009-2014 / Advanced mathematical studies and Architecture School `;
+2010-2014 / Architecture Studies, State diploma of architecture `;
 
 
   const frenchTitle = `À propos`;
-  const frenchText = `Je suis Emilie, développeuse créative française avec un background en architecture, design graphique et mathématiques. 
-Mes spécialités sont la modélisation 3D, les expériences web intéractives et la conception de décors virtuels.`;
+  const frenchText = `Je suis Emilie, développeuse créative française
+  avec un background en architecture. 
+Mes spécialités sont les expériences web intéractives 
+et la modélisation 3D.`;
   const frenchCV = `-
   2022 / Cursus Three.js Journey
-  2017-2022 / Scénographe et graphiste d'exposition freelance
-  2014-2017 / Architecte en agences d'architecture 
-  2009-2014 / Classes préparatoires MPSI et école d'Architecture `;
+  2018-2022 / Scénographe et graphiste d'exposition freelance
+  2017-2018 / Formation en scénographie
+  2014-2017 / Architecte en agences d'architecture
+  2010-2014 / Formation en architecture, Architecte diplômée d’État,  `;
 
 
-  const handleChange = () => {
-    setEnglish(prevState => !prevState);
+  const handleChangeLanguage = () => {
+    changeLanguage()
   }
 
   return (
-    <div className={showContent === false ? "about-page hide" : "about-page show"}>
+    <div className={showContentAbout === false ? "about-page hide" : "about-page show"}>
       <section className='title'>
         <h1 className="title">{english === true ? englishTitle : frenchTitle}</h1>
-        <button className="title" onClick={handleChange}>{english === true ? 'en français ?' : 'in english?'}</button>
+        <button className="title" onClick={handleChangeLanguage}>{english === true ? 'en français ?' : 'in english?'}</button>
       </section>
       <section className='main'>
         <div className="line"></div>
@@ -71,8 +75,12 @@ Mes spécialités sont la modélisation 3D, les expériences web intéractives e
               <p className='skill'><img src='../../static/skills/logo_html.png' />HTML</p>
               <p className='skill'><img src='../../static/skills/logo_css.png' />CSS</p>
             </div>
+            <div>
+              <p className='skill'>GLSL</p>
+              <p className='skill'>GSAP</p>
+            </div>
           </div>
-          <div className="line skills-division"></div>
+          {/* <div className="line skills-division"></div> */}
           <div className='left-align skills-column'>
             <div><h5 className='skill'>{english === true ? 'Software skills' : 'Logiciels'}</h5></div>
             <div>
